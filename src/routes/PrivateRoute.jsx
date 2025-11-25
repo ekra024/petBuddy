@@ -9,11 +9,12 @@ const PrivateRoute = ({children}) => {
   console.log(loading);
   console.log(user);
   console.log(loading);
+  console.log(location);
 
 
   if(loading) return <progress className="progress w-56"></progress>
   else if(user && user?.email) return children;
-  return <Navigate state={location.pathname} to='/signIn' />
+  return <Navigate state={location.pathname} to='/signUp'></Navigate>
 };
 
 export default PrivateRoute;

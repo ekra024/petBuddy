@@ -8,6 +8,9 @@ import AddAPet from '../pages/Dashboard/AddAPet';
 import PrivateRoute from '../routes/PrivateRoute';
 import DashboardLayout from '../layouts/DashboardLayout';
 import MyAddedPets from '../pages/Dashboard/MyAddedPets';
+import CreateDonation from '../pages/Dashboard/CreateDonationCamp';
+import MyDonationCamp from '../pages/Dashboard/MyDonationCamp';
+// import MyAddedPets from '../pages/Dashboard/MyAddedPets';
 
 const router = createBrowserRouter([
   {
@@ -49,19 +52,24 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/dashboard/addAPet',
-        element:<AddAPet />
+        element:<AddAPet/>
       },
       {
         path:'/dashboard/myAddedPets',
-        element: <MyAddedPets />
+       Component: MyAddedPets
       },
       {
-        path:'/dashboard/addAPet',
-        element:<h2>add a pet</h2>
+        path:'/dashboard/adoption',
+        element: <h1>adoption</h1>
       },
+      {
+        path:'/dashboard/createDonation',
+        element: <CreateDonation />
+      },
+      
       {
         path:'/dashboard/myDonationCamp',
-        element:<h2>my don camp</h2>
+        element:<MyDonationCamp />
       },
       {
         path:'/dashboard/myDonation',

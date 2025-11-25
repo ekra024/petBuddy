@@ -6,7 +6,7 @@ import auth from '../firebase/firebase.init';
 const AuthProvider = ({children}) => {
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
     setLoading(true);
