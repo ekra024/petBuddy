@@ -1,72 +1,40 @@
-import { SparklesIcon } from '@heroicons/react/24/outline';
-import axios from 'axios';
-import React, { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useAuth from '../../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
-import useAuth from '../../hooks/useAuth';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
-import Swal from 'sweetalert2';
 
-const CreateDonationCamp = () => {
+const UpdateDonationCamp = () => {
 
-  const {register, handleSubmit, reset , formState:{errors}} = useForm();
-  const [petImage, setPetImage] = useState('');
-  const {user} = useAuth();
   const axiosSecure = useAxiosSecure();
+  const {user} = useAuth();
 
+  const { register, handleSubmit, formState: {errors}} = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    const created_by = user.displayName;
-    const userEmail = user.email;
-    const date = new Date().toISOString();
-    const requiredAmount = data.targetAmount;
-    const donatedAmount = 0;
+  const {data: campaigns=[], isLoading } = useQuery({
+    queryKey: ['myDonationCampaigns'],
+    queryFn: async () => {
 
-    const campInfo = {
-      ...data,
-      petImage,
-      created_by,
-      userEmail,
-      donatedAmount,
-      requiredAmount,
-      date,
+      const res = await axiosSecure.get(`/campaigns/${user.email}`);
+
+      //const res = await axiosSecure.get(`/campaigns/${user.email}`)
+      return res.data;
     }
-    console.log(campInfo);
+  })
 
-    axiosSecure.post('/campaigns', campInfo)
-    .then(res =>{
-      if(res.data.insertedId){
-        Swal.fire('Thank you','Successfully Created A Campaign','success')
-        reset();
-      }
-    })
+  console.log(campaigns);
 
-    
-
-  }
-
-  const handleImageUpload = async(e) => {
-    const image = e.target.files[0];
-    console.log(image);
-
-    const formData = new FormData();
-    formData.append('image', image);
-
-    const imageUploadURL =`https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_image_upload_key
-    }`;
-
-    const res = await axios.post(imageUploadURL, formData);
-    setPetImage(res.data.data.url);
-  }
+ const onSubmit = data => {
+    console.log(data);
+ }
 
   return (
     <div className='max-w-3xl mx-auto my-10 p-8 rounded-2xl shadow-lg bg-white border border-purple-200e'>
-      <h1 className='text-3xl font-bold text-[#002169] mb-6 text-center'>Create A Donation Campaign</h1>
-       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <h1 className='text-3xl font-bold text-[#002169] mb-6 text-center'>Update The Donation Campaign</h1>
+       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)} >
           <div>
-            <label className="block font-semibold text-[#002169]">Pet Image</label>
-            <input type="file"  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#894b8d]" onChange={handleImageUpload} placeholder='choose a image file' />
+            <label defaultValue={campaigns.petImage} className="block font-semibold text-[#002169]">Pet Image</label>
+            <input type="file"  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#894b8d]" placeholder='choose a image file' />
           </div>
           <div>
             <label className="block font-semibold text-[#002169]">Target Amount</label>
@@ -88,7 +56,7 @@ const CreateDonationCamp = () => {
           }
           <div>
             <label className="block font-semibold text-[#002169]">Description</label>
-            <input type="text"  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#894b8d]"
+            <input type="text" defaultValue={campaigns.description} className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#894b8d]"
             {...register('description',{required: true})}
             placeholder='Why need donation' />
           </div>
@@ -113,4 +81,4 @@ const CreateDonationCamp = () => {
   );
 };
 
-export default CreateDonationCamp;
+export default UpdateDonationCamp;

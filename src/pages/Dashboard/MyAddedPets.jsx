@@ -94,7 +94,9 @@ const MyAddedPets = () => {
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <table className="w-full">
+    <div className="p-6 bg-white shadow rounded-xl">
+      <h2 className="text-3xl font-bold mb-4 text-[#002169] text-center">My Added Pets</h2>
+      <table className="w-full">
       <thead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>
@@ -124,6 +126,7 @@ const MyAddedPets = () => {
         ))}
       </tbody>
     </table>
+    </div>
   );
 };
 
