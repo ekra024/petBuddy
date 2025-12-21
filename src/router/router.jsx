@@ -11,6 +11,7 @@ import MyAddedPets from "../pages/Dashboard/MyAddedPets";
 import CreateDonation from "../pages/Dashboard/CreateDonationCamp";
 import MyDonationCamp from "../pages/Dashboard/MyDonationCamp";
 import UpdateDonationCamp from "../pages/Dashboard/DonationCamp/UpdateDonationCamp";
+import Home from "../pages/Home/Home";
 // import MyAddedPets from '../pages/Dashboard/MyAddedPets';
 
 const router = createBrowserRouter([
@@ -19,8 +20,8 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        path: "/",
-        index: true,
+        index: true,        
+        Component: Home,
       },
       {
         path: "/pets",
