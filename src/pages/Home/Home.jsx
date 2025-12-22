@@ -7,6 +7,7 @@ import ChoosenUs from "./ChooseUs/ChoosenUs";
 import DiscoverCity from "./DiscoverCity/DiscoverCity";
 import Slogan from "./Slogan/Slogan";
 import Review from "./ReviewSection/Review";
+import Article from "./ArticleSection/Article";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <DiscoverCity />
       <Slogan />
       <Review />
+      <Article />
     </div>
   );
 };
