@@ -3,10 +3,11 @@ import bannerImage from "/sidebanner.jpg";
 import overlayImage from "/logo.jpg";
 import sideBannerImage from "/pet12.avif";
 import { FaStar } from "react-icons/fa";
-import person1 from "/person2.jpeg"
-import person2 from "/person3.jpeg"
-import person3 from "/peerson7.jpg"
-import person4 from "/person9.jpeg"
+import person1 from "/person2.jpeg";
+import person2 from "/person3.jpeg";
+import person3 from "/peerson7.jpg";
+import person4 from "/person9.jpeg";
+import { GoArrowRight } from "react-icons/go";
 
 const Banner = () => {
   return (
@@ -49,13 +50,11 @@ const Banner = () => {
                 <FaStar className="inline  text-xl text-yellow-500" />
                 <FaStar className="inline  text-xl text-yellow-500" />
                 <FaStar className="inline  text-xl text-yellow-500" />
-               
               </div>
               <span className="ml-2 text-gray-800 font-semibold absolute bottom-0 left-40 ">
                 5.0 (25k Reviews)
               </span>
             </div>
-            
           </div>
         </div>
         <div className="lg:block hidden ml-50 my-30">
@@ -90,8 +89,8 @@ const Banner = () => {
           management chronic diseases. We areommit ted to being the network
           providing healthcare centered care that inspires.
         </p>
-        <button className="border my-6  bg-[#894B8D]  text-white font-semibold p-4 px-8 text-l rounded-4xl">
-          Contact With Us
+        <button className="border my-6  bg-[#894B8D]  text-white font-semibold p-4 px-8 text-[18px] rounded-4xl">
+          Contact With Us <GoArrowRight className="inline ml-2 text-2xl " />
         </button>
       </div>
     </div>
