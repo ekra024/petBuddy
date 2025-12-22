@@ -5,7 +5,7 @@ import SloganImage from '/Slogan.webp';
 const Slogan = () => {
   return (
     <div className="bg-[#894B8D] pt-10 px-16 lg:flex justify-between items-center gap-10">
-      <div className="text-center">
+      <div data-aos="flip-left" className="text-center">
         <h1 className="text-4xl text-white font-bold px-16 lg:px-0">
           Pets Are Not Just Animals, They Are A Part of Our Family
         </h1>
@@ -20,7 +20,7 @@ const Slogan = () => {
           </button>
         </div>
       </div>
-      <div className="mt-10">
+      <div data-aos="flip-right" className="mt-10">
         <img src={SloganImage} alt="Slogan" />
       </div>
     </div>

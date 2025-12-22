@@ -7,7 +7,7 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 const ChoosenUs = () => {
   return (
     <div className="w-full bg-blue-50 lg:flex gap-5 p-5 pb-15">
-      <div className="lg:w-1/2 flex justify-center items-center">
+      <div data-aos="zoom-in-right" className="lg:w-1/2 flex justify-center items-center">
         <img
           src={Image1}
           alt="Banner"
@@ -19,7 +19,7 @@ const ChoosenUs = () => {
           className="w-76 rounded-[50px] object-center -ml-20 mt-60  "
         />
       </div>
-      <div className="lg:w-1/2 mt-20 pr-0 lg:mt-40">
+      <div data-aos="zoom-in-left" className="lg:w-1/2 mt-20 pr-0 lg:mt-40">
         <div className="flex items-center mt-5">
           <h2 className="text-[18px] text-[#894B8D] font-semibold">
             WHY CHOOSE US

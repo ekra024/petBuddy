@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import bannerImage from "/sidebanner.jpg";
 import overlayImage from "/logo.jpg";
 import sideBannerImage from "/pet12.avif";
@@ -9,21 +9,29 @@ import person3 from "/peerson7.jpg";
 import person4 from "/person9.jpeg";
 import { GoArrowRight } from "react-icons/go";
 import { MdOutlinePets } from "react-icons/md";
+import Aos from "aos";
 
 const Banner = () => {
+  useEffect(() => {
+      Aos.init({
+        duration: 200,
+        once:false,
+        offset: 120,
+      })
+    },[])
   return (
     <div className="bg-purple-50 pt-5">
-      <div className="w-11/12 mx-auto md:flex gap-10 relative">
-        <div className="w-full pl-20 max-w-5xl">
+      <div className="w-11/12 mx-auto md:flex gap-8 relative">
+        <div data-aos="fade-right" className="w-full pl-20 max-w-5xl">
           <img
             className="my-10 w-[50] h-screen rounded-full object-cover"
             src={bannerImage}
             alt=""
           />
-          <div className="rounded-full w-50 absolute lg:top-1/12 lg:left-1/5 md:top-1/7 md:left-1/3 top-1/10 right-1/5   ">
-            <img className="rounded-full w-40 lg:w-50 hidden md:flex" src={overlayImage} alt="" />
+          <div className="rounded-full w-50 absolute lg:top-1/7 md:top-1/7 md:left-3/4 top-1/10 right-1/5 ">
+            <img className="rounded-full w-40 hidden md:flex" src={overlayImage} alt="" />
           </div>
-          <div className="absolute bottom-20 left-0">
+          <div className="absolute md:bottom-12 md:left-16 lg:bottom-12">
             <div className="avatar-group w-80 -space-x-6 border border-gray-400 py-1 px-2 relative  rounded-4xl bg-gray-50 hidden  md:flex">
               <div className="avatar">
                 <div className="w-12">
@@ -58,7 +66,7 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className="lg:block hidden ml-50 my-30">
+        <div data-aos="fade-up" className="lg:block hidden ml-20 my-30">
           <div className="flex items-center">
             <h2 className="text-l text-[#894B8D] font-semibold my-3">
               WE LOVE OUR JOB!
@@ -77,11 +85,11 @@ const Banner = () => {
             Contact With Us <GoArrowRight className="inline ml-2 text-2xl " />
           </button>
         </div>
-        <div className="w-full md:ml-30 lg:ml-5 flex items-center justify-center rounded-4xl pl-4">
+        <div data-aos="fade-left" className="w-full md:ml-30 lg:ml-5 flex items-center justify-center rounded-4xl pl-4">
           <img className="rounded-4xl object-cover " src={sideBannerImage} alt="" />
         </div>
       </div>
-      <div className="text-left lg:hidden w-11/12 mx-auto">
+      <div data-aos="fade-up" className="text-left lg:hidden w-11/12 mx-auto">
         <div className="flex items-center mt-5">
           <h2 className="text-l text-[#894B8D] font-semibold my-3">
             WE LOVE OUR JOB!

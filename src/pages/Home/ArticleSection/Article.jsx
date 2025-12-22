@@ -9,7 +9,7 @@ import { BsPersonCircle } from "react-icons/bs";
 
 const Article = () => {
   return (
-    <div className="bg-purple-100 p-0  lg:p-20 lg:pb-40 pb-20 mt-10">
+    <div className="bg-purple-100 p-16  lg:p-20 lg:pb-40 pb-20 mt-10">
       <div className="flex justify-between items-center">
         <div>
           <div className="flex items-center mt-5">
@@ -29,7 +29,7 @@ const Article = () => {
         </div>
       </div>
       <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-8 mt-5">
-        <div className="bg-white rounded-2xl pb-10 shadow-xl">
+        <div data-aos="zoom-in" className="bg-white rounded-2xl pb-10 shadow-xl">
           <img
             src={Article1} 
             alt="Article 1"
@@ -48,7 +48,7 @@ const Article = () => {
             with our comprehensive guide.
           </p>
         </div>
-        <div className="bg-white rounded-2xl shadow-xl pb-5">
+        <div data-aos="zoom-in" className="bg-white rounded-2xl shadow-xl pb-5">
           <img
             src={Article2} 
             alt="Article 2"
@@ -67,7 +67,7 @@ const Article = () => {
             long and healthy life.
           </p>
         </div>
-        <div className="bg-white rounded-2xl shadow-xl pb-5 ">
+        <div data-aos="zoom-in" className="bg-white rounded-2xl shadow-xl pb-5 w-full lg:w-auto lg:ml-0  md:ml-50 ">
           <img
             src={Article3} 
             alt="Article 3"

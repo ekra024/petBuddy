@@ -7,7 +7,7 @@ import Person from '/person2.jpeg'
 const Review = () => {
   return (
     <div className='w-9/12 lg:w-10/12 mx-auto mt-20 lg:flex gap-10 my-5 mb-30'>
-      <div className='lg:w-1/2 flex justify-center mb-20'>
+      <div data-aos="fade-right" className='lg:w-1/2 flex justify-center mb-20'>
         <img src={ReviewImage} className="w-full " alt="Review" />
         <div className="bg-blue-900 rounded-full absolute hidden md:block md:mt-60 lg:mt-60 ml-10 p-5 px-10 text-center">
           <div className="mb-2">
@@ -19,7 +19,7 @@ const Review = () => {
           <p className="text-white">Reviews</p>
         </div>
       </div>
-      <div className="lg:w-1/2">
+      <div data-aos="fade-left" className="lg:w-1/2">
         <div className="flex items-center mt-5">
           <h2 className="text-[20px] text-[#894B8D] font-semibold my-3">
             TESTIMONIALS

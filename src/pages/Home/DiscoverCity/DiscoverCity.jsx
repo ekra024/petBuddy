@@ -7,8 +7,8 @@ import BarishalCity from "/Barishal.jpg";
 
 const DiscoverCity = () => {
   return (
-    <div className="px-10 mb-10 mt-10">
-      <div className="text-center mb-10">
+    <div className="px-10 my-20">
+      <div  data-aos="fade-down" className="text-center mb-10">
         <div className="flex justify-center items-center mx-auto">
           <h2 className="text-[18px] text-[#894B8D] font-semibold">
             DISCOVER OUR CITIES
@@ -24,7 +24,7 @@ const DiscoverCity = () => {
         </p>
       </div>
       <div>
-        <div className="lg:flex space-y-5 gap-5">
+        <div  data-aos="fade-down-right" className="lg:flex space-y-5 gap-5">
           <div className="lg:w-1/2">
             <img
               src={DhakaCity}
@@ -48,7 +48,7 @@ const DiscoverCity = () => {
             </div>
           </div>
         </div>
-        <div className="lg:flex gap-5 space-y-5 lg:space-y-0 mt-5">
+        <div  data-aos="fade-down-left" className="lg:flex gap-5 space-y-5 lg:space-y-0 mt-5">
           <div className="lg:w-1/3">
             <img
               src={ChattogramCity}
