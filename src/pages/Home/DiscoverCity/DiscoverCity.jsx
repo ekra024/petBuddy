@@ -7,7 +7,7 @@ import BarishalCity from "/Barishal.jpg";
 
 const DiscoverCity = () => {
   return (
-    <div className="px-10 mb-10">
+    <div className="px-10 mb-10 mt-10">
       <div className="text-center mb-10">
         <div className="flex justify-center items-center mx-auto">
           <h2 className="text-[18px] text-[#894B8D] font-semibold">

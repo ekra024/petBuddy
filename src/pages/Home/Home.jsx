@@ -1,11 +1,12 @@
 import React from "react";
-import Banner from "./Banner";
-import PetAnimation from "./PetAnimation";
+import Banner from "./Banner/Banner";
+import PetAnimation from "./PetAnimation/PetAnimation";
 import AvailablePets from "./AvailablePets/AvailablePets";
 import Categorys from "./CategorySection/Categorys";
 import ChoosenUs from "./ChooseUs/ChoosenUs";
 import DiscoverCity from "./DiscoverCity/DiscoverCity";
 import Slogan from "./Slogan/Slogan";
+import Review from "./ReviewSection/Review";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <ChoosenUs />
       <DiscoverCity />
       <Slogan />
+      <Review />
     </div>
   );
 };

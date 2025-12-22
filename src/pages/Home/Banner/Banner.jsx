@@ -12,7 +12,7 @@ import { GoArrowRight } from "react-icons/go";
 const Banner = () => {
   return (
     <div className="bg-gray-200 pt-5">
-      <div className="w-11/12 mx-auto flex gap-10 relative">
+      <div className="w-11/12 mx-auto md:flex gap-10 relative">
         <div className="w-3/4">
           <img
             className="my-10 w-[50] h-screen rounded-full"
@@ -23,7 +23,7 @@ const Banner = () => {
             <img className="rounded-full w-100" src={overlayImage} alt="" />
           </div>
           <div className="absolute bottom-10 left-5">
-            <div className="avatar-group w-80 -space-x-6 border border-gray-400 py-1 px-2 relative  rounded-4xl bg-gray-50">
+            <div className="avatar-group w-80 -space-x-6 border border-gray-400 py-1 px-2 relative  rounded-4xl bg-gray-50 hidden  md:flex">
               <div className="avatar">
                 <div className="w-12">
                   <img src={person1} />
