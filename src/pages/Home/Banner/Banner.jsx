@@ -8,6 +8,7 @@ import person2 from "/person3.jpeg";
 import person3 from "/peerson7.jpg";
 import person4 from "/person9.jpeg";
 import { GoArrowRight } from "react-icons/go";
+import { MdOutlinePets } from "react-icons/md";
 
 const Banner = () => {
   return (
@@ -58,9 +59,12 @@ const Banner = () => {
           </div>
         </div>
         <div className="lg:block hidden ml-50 my-30">
+          <div className="flex items-center">
           <h2 className="text-l text-[#894B8D] font-semibold my-3">
             WE LOVE OUR JOB!
           </h2>
+          <MdOutlinePets className="inline text-xl text-[#894B8D] ml-2 mb-2" />
+        </div>
           <h1 className="text-4xl font-bold mb-4 text-[#002169]">
             Adopt Pets And Save Their Lives
           </h1>
@@ -78,9 +82,13 @@ const Banner = () => {
         </div>
       </div>
       <div className="text-left lg:hidden w-11/12 mx-auto">
-        <h2 className="text-l text-[#894B8D] font-semibold my-3">
-          WE LOVE OUR JOB!
-        </h2>
+        <div className="flex items-center mt-5">
+          <h2 className="text-l text-[#894B8D] font-semibold my-3">
+            WE LOVE OUR JOB!
+          </h2>
+          <MdOutlinePets className="inline text-xl text-[#894B8D] ml-2 mb-2" />
+        </div>
+
         <h1 className="text-4xl font-bold mb-4 text-[#002169]">
           Adopt Pets And Save Their Lives
         </h1>
