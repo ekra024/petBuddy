@@ -4,6 +4,7 @@ import Cat from '/pet26.avif'
 import Fish from '/fish5.avif'
 import Rabbit from '/pet4.jpeg'
 import Duck from '/Duck1.jpeg'
+import { Link } from 'react-router-dom'
 
 const Categorys = () => {
   return (
@@ -12,8 +13,8 @@ const Categorys = () => {
       <p className='plus text-[#8FA5D6] px-5 '>We will work with you to develop individualised care plans, including management chronic diseases </p>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10'>
         <div data-aos="flip-up" className='bg-white p-5 rounded-lg cursor-pointer hover:shadow-lg '>
-          <img className='w-56 h-50 mx-auto rounded-4xl hover:scale-105' src={Dog} alt="Dog Icon" />
-          <h2 className='mt-2 font-semibold'>Dogs</h2>
+          <Link to={`/pets`}><img className='w-56 h-50 mx-auto rounded-4xl hover:scale-105' src={Dog} alt="Dog Icon" />
+          <h2 className='mt-2 font-semibold'>Dogs</h2></Link>
         </div>
         <div data-aos="flip-up" className='bg-white p-5 rounded-lg cursor-pointer hover:shadow-lg '>
           <img className='w-56 h-50 mx-auto rounded-4xl hover:scale-105' src={Cat} alt="Cat Icon" />
