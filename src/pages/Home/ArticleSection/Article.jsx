@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GoArrowRight } from "react-icons/go";
 import { MdOutlinePets } from "react-icons/md";
 import Article1 from '/pet10.avif'
@@ -6,8 +6,16 @@ import Article2 from '/pet8.avif'
 import Article3 from '/pet11.avif'
 import { CiCalendarDate } from "react-icons/ci";
 import { BsPersonCircle } from "react-icons/bs";
+import Aos from "aos";
 
 const Article = () => {
+   useEffect(() => {
+    Aos.init({
+      duration: 3000,
+    })
+   },[])
+
+
   return (
     <div className="bg-purple-100 p-16  lg:p-20 lg:pb-40 pb-20 mt-10">
       <div className="flex justify-between items-center">

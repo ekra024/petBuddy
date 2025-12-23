@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Banner from "./Banner/Banner";
 import PetAnimation from "./PetAnimation/PetAnimation";
-import AvailablePets from "./AvailablePets/AvailablePets";
+import AvailablePets from "../PetListing/AvailablePets/AvailablePets";
 import Categorys from "./CategorySection/Categorys";
 import ChoosenUs from "./ChooseUs/ChoosenUs";
 import DiscoverCity from "./DiscoverCity/DiscoverCity";
