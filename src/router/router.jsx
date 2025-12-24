@@ -13,7 +13,7 @@ import MyDonationCamp from "../pages/Dashboard/MyDonationCamp";
 import UpdateDonationCamp from "../pages/Dashboard/DonationCamp/UpdateDonationCamp";
 import Home from "../pages/Home/Home";
 import PetListing from "../pages/PetListing/PetListing";
-// import MyAddedPets from '../pages/Dashboard/MyAddedPets';
+import PetDetail from '../pages/PetListing/PetDetailPage/PetDetail';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
         element: <PetListing />,
       },
       {
-        path:"/petDetails/:id",
-        element:<h2>pet </h2>
+        path:"/petDetail/:id",
+        element:<PrivateRoute><PetDetail /></PrivateRoute>
       },
       {
         path: "/contact",

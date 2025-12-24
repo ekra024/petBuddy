@@ -24,7 +24,7 @@ const SinglePet = ({pet}) => {
           <h3><MdOutlineCategory className="inline text-xl"/> {category.label} </h3>
         </div>
         <div>
-          <Link to={`/petDetails/${_id}`} className="border rounded-4xl px-6 py-2 bg-[purple] text-white hover:bg-purple-900" >Details</Link>
+          <Link to={`/petDetail/${_id}`} className="border rounded-4xl px-6 py-2 bg-[purple] text-white hover:bg-purple-900" >Details</Link>
         </div>
       </div>
     </div>
