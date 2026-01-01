@@ -20,7 +20,7 @@ const MyAddedPets = () => {
     queryKey: ["userPets", user.email],
     enabled: !!user.email,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/pets/${user.email}`);
+      const res = await axiosSecure.get(`/pets/user/${user.email}`);
       return res.data;
     },
   });

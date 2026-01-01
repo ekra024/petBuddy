@@ -14,6 +14,7 @@ import UpdateDonationCamp from "../pages/Dashboard/DonationCamp/UpdateDonationCa
 import Home from "../pages/Home/Home";
 import PetListing from "../pages/PetListing/PetListing";
 import PetDetail from '../pages/PetListing/PetDetailPage/PetDetail';
+import Campaigns from "../pages/CamaignsPage/Campaigns/Campaigns";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path:"/petDetail/:id",
         element:<PrivateRoute><PetDetail /></PrivateRoute>
+      },
+      {
+        path:"/campaigns",
+        element:<Campaigns />
       },
       {
         path: "/contact",

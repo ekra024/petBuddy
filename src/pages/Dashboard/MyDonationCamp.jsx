@@ -11,9 +11,10 @@ const MyDonationCamp = () => {
   const {user} = useAuth();
 
   const {data: campaigns=[], isLoading} = useQuery({
-    queryKey: ['myDonationCampaigns'],
+    queryKey: ['myDonationCampaigns', user],
+    enabled: !!user.email,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/campaigns/${user.email}`)
+      const res = await axiosSecure.get(`/campaigns/user/${user.email}`)
       return res.data;
     }
   })
@@ -28,6 +29,7 @@ const MyDonationCamp = () => {
         <thead>
           <tr className="bg-gray-100">
             <th className="p-3 border">Pet Image</th>
+            <th className="p-3 border">Pet Name</th>
             <th className="p-3 border">Max Amount</th>
             <th className="p-3 border">Progress</th>
             <th className="p-3 border">Actions</th>
@@ -50,6 +52,7 @@ const MyDonationCamp = () => {
                   <td className="p-3 border"> <div className="flex justify-center items-center">
                     <img src={camp.petImage} alt="" className="w-26 h-20 flex justify-center items-center" />
                     </div></td>
+                    <td className="p-3 border font-medium">{camp.petName}</td>
 
                   <td className="p-3 border font-mediun">{camp.targetAmount} BDT</td>
                   <td className="p-3 w-1/4 lg:w-1/2 border font-medium" > <DonationProgressBar percent={percent} /> 

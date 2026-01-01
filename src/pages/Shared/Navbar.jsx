@@ -19,6 +19,7 @@ const Navbar = () => {
   const menu = [
     { item: "Home", route: "/" },
     { item: "Pets", route: "/pets" },
+    { item: "Campaigns", route: "/campaigns" },
     { item: "Contact", route: "/contact" },
   ];
 

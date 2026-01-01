@@ -66,8 +66,15 @@ const CreateDonationCamp = () => {
        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
             <label className="block font-semibold text-[#002169]">Pet Image</label>
-            <input type="file"  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#894b8d]" onChange={handleImageUpload} placeholder='choose a image file' />
+            <input type="file"  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#894b8d]" onChange={handleImageUpload} required placeholder='choose a image file' />
           </div>
+          <div>
+            <label className='block font-semibold text-[#002169]' >Pet Name</label>
+            <input type="text" className='w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#894b8d]'{...register('petName', {required: true})} placeholder='Enter Pet Name' />
+          </div>
+          {
+            errors.petName && (<span className='text-red-600 text-sm'>Pet Name is Required</span> )
+          }
           <div>
             <label className="block font-semibold text-[#002169]">Target Amount</label>
             <input type="number"  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#894b8d]"
