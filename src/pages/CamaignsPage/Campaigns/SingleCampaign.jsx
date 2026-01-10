@@ -8,7 +8,7 @@ const SingleCampaign = ({camp}) => {
         <img className="w-full h-60 object-cover rounded-t-4xl " src={petImage} alt="" />
       </div>
       <div className='font-semibold my-5 text-[#002169]'>
-        <div className='text-center'>{petName}</div>
+        <div className='text-center text-3xl'>{petName}</div>
         <div className='flex justify-between px-10 pt-4'>
           <h3>Campigns created : {created_by}</h3>
           <h3>{description}</h3>

@@ -4,20 +4,23 @@ import RootLayout from "../layouts/RootLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import SignIn from "../pages/Authentication/SignIn";
 import SignUp from "../pages/Authentication/SignUp";
-import AddAPet from "../pages/Dashboard/AddAPet";
+import AddAPet from "../pages/Dashboard/AddAPet/AddAPet";
 import PrivateRoute from "../routes/PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
-import MyAddedPets from "../pages/Dashboard/MyAddedPets";
-import CreateDonation from "../pages/Dashboard/CreateDonationCamp";
-import MyDonationCamp from "../pages/Dashboard/MyDonationCamp";
-import UpdateDonationCamp from "../pages/Dashboard/DonationCamp/UpdateDonationCamp";
+import MyAddedPets from "../pages/Dashboard/MyAddedPet/MyAddedPets";
+import CreateDonation from "../pages/Dashboard/CreateDonationCamp/CreateDonationCamp";
+import MyDonationCamp from "../pages/Dashboard/MyDonationCamp/MyDonationCamp";
+import UpdateDonationCamp from "../pages/Dashboard/MyDonationCamp/UpdateDonationCamp";
 import Home from "../pages/Home/Home";
 import PetListing from "../pages/PetListing/PetListing";
-import PetDetail from '../pages/PetListing/PetDetailPage/PetDetail';
+import PetDetail from "../pages/PetListing/PetDetailPage/PetDetail";
 import Campaigns from "../pages/CamaignsPage/Campaigns/Campaigns";
 import CampaignDetails from "../pages/CamaignsPage/CampaignDetails/CampaignDetails";
 import DonationPage from "../pages/DonationPage/DonationPage";
 import StripePaymentPage from "../pages/CamaignsPage/StripePaymentPage.jsx/StripePaymentPage";
+import MyDonationPage from "../pages/Dashboard/MyDonation/MyDonationPage";
+import MyAdoptionRequest from "../pages/Dashboard/MyAdoptionRequest/MyAdoptionRequest";
+import UpdatePet from "../pages/Dashboard/AddAPet/UpdatePet";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +28,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        index: true,        
+        index: true,
         Component: Home,
       },
       {
@@ -33,24 +36,42 @@ const router = createBrowserRouter([
         element: <PetListing />,
       },
       {
-        path:"/petDetail/:id",
-        element:<PrivateRoute><PetDetail /></PrivateRoute>
+        path: "/petDetail/:id",
+        element: (
+          <PrivateRoute>
+            <PetDetail />
+          </PrivateRoute>
+        ),
       },
       {
-        path:"/campaigns",
-        element:<Campaigns />
+        path: "/campaigns",
+        element: <Campaigns />,
       },
       {
-        path:"/campaigns/:id",
-        element: <PrivateRoute><CampaignDetails /> </PrivateRoute>
+        path: "/campaigns/:id",
+        element: (
+          <PrivateRoute>
+            <CampaignDetails />{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "/donate/:id",
-        element: <PrivateRoute> <DonationPage /> </PrivateRoute>
+        element: (
+          <PrivateRoute>
+            {" "}
+            <DonationPage />{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "/stripe-payment",
-        element: <PrivateRoute> <StripePaymentPage /> </PrivateRoute>
+        element: (
+          <PrivateRoute>
+            {" "}
+            <StripePaymentPage />{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "/contact",
@@ -90,8 +111,12 @@ const router = createBrowserRouter([
         Component: MyAddedPets,
       },
       {
+        path: "/dashboard/update-pet/:id",
+        element: <UpdatePet />
+      },
+      {
         path: "/dashboard/adoptionRequest",
-        element: <h1>adoption</h1>,
+        element: <MyAdoptionRequest />,
       },
       {
         path: "/dashboard/createDonation",
@@ -108,7 +133,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/myDonation",
-        element: <h2>my donation</h2>,
+        element: <MyDonationPage />,
       },
     ],
   },

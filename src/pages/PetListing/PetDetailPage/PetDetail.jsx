@@ -21,7 +21,7 @@ const PetDetail = () => {
     }
   })
 
-  //console.log(pet);
+  
 
   if(isLoading) return <PetDetailSkeleton />
   return (
@@ -31,11 +31,13 @@ const PetDetail = () => {
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="grid md:grid-cols-2 ">
 
-          <img
+          <div className='w-full h-100'>
+            <img
             src={pet?.pet_image}
             alt={pet?.petName}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fit"
           />
+          </div>
 
           <div className="p-8 text-left">
             <span className="inline-block mb-3 px-4 py-1 rounded-full bg-[#ffbe17] text-[#002169] font-semibold">

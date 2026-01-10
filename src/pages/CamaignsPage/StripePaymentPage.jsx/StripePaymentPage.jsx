@@ -14,7 +14,7 @@ const StripePaymentPage = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const {amount, campaignId} = state || {};
+  const {amount, campaignId, petName} = state || {};
   const [processing, setProcessing] = useState(false);
 
   const {isLoading, data} = useQuery({
@@ -59,6 +59,7 @@ const StripePaymentPage = () => {
           donorName: user?.displayName,
           donorEmail: user?.email,
           transactionId: result.paymentIntent.id,
+          petName,
         });
        Swal.fire("Donation Successful", `Thank you for donating ${amount}TK.`, "success");
        navigate('/dashboard/myDonation')

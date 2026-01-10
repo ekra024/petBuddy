@@ -14,12 +14,12 @@ const Campaigns = () => {
     },
   });
 
-  console.log(campaigns);
+
 
   if (isLoading) return <h2>Loading...</h2>;
   return (
     <div className="bg-blue-50 px-10 pt-5 pb-16">
-      <h1 className="text-4xl text-[#002169] text-center pb-10">Available Campaigns Here</h1>
+      <h1 className="text-4xl text-[#002169] text-center font-semibold pb-10">Available Campaigns Here</h1>
       <div className="grid gap-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
         {campaigns.map((camp) => (
           <SingleCampaign camp={camp} key={camp._id} />

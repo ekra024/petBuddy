@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AdoptModal = ({ pet, onClose }) => {
   const { user } = useAuth();
@@ -10,6 +11,7 @@ const AdoptModal = ({ pet, onClose }) => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +37,7 @@ const AdoptModal = ({ pet, onClose }) => {
       icon: "success",
       draggable: true,
     });
+    navigate('/pets');
   };
 
   return (
