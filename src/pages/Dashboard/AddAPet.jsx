@@ -5,14 +5,15 @@ import Select from "react-select";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   { value: "Cat", label: "Cat" },
   { value: "Dog", label: "Dog" },
-  { value: "Rabbit", label: "Rabbit" },
+  { value: "Duck", label: "Duck" },
   { value: "Bird", label: "Bird" },
   { value: "Fish", label: "Fish" },
-  { value: "Other", label: "Other" },
+  { value: "Rabbit", label: "Rabbit" },
 ];
 
 const AddAPet = () => {
@@ -25,6 +26,7 @@ const AddAPet = () => {
   const [pic, setPic] = useState();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     const img = pic;
@@ -49,7 +51,7 @@ const AddAPet = () => {
           text: "Sucessfully added a pet",
           icon: "success",
         });
-       
+        navigate("/dashboard/myAddedPets")
       }
     })
     reset();

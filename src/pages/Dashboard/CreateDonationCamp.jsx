@@ -19,16 +19,14 @@ const CreateDonationCamp = () => {
     const created_by = user.displayName;
     const userEmail = user.email;
     const date = new Date().toISOString();
-    const requiredAmount = data.targetAmount;
-    const donatedAmount = 0;
 
     const campInfo = {
       ...data,
+      targetAmount: Number(data.targetAmount),
       petImage,
       created_by,
       userEmail,
-      donatedAmount,
-      requiredAmount,
+      donatedAmount: 0,
       date,
     }
     console.log(campInfo);

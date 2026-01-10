@@ -9,7 +9,7 @@ const Campaigns = () => {
   const { data: campaigns = [], isLoading } = useQuery({
     queryKey: ["AvailableCamp"],
     queryFn: async () => {
-      const res = await axios(`/campaigns/available`);
+      const res = await axios.get(`/campaigns/available`);
       return res.data;
     },
   });

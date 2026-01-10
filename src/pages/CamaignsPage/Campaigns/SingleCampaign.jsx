@@ -1,6 +1,3 @@
-import React from 'react';
-import { CiDollar, CiLocationOn } from 'react-icons/ci';
-import { FaSortAmountDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const SingleCampaign = ({camp}) => {
@@ -21,7 +18,7 @@ const SingleCampaign = ({camp}) => {
           <h3>Donated Amount : {donatedAmount} </h3>
         </div>
         <div className='text-center pb-4'>
-          <Link to={`/petDetail/${_id}`} className="border rounded-4xl px-6 py-2 bg-[purple] text-white hover:bg-purple-900" >View Details</Link>
+          <Link to={`/campaigns/${_id}`} className="border rounded-4xl px-6 py-2 bg-[purple] text-white hover:bg-purple-900" >View Details</Link>
         </div>
       </div>
     </div>

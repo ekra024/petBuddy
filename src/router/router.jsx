@@ -15,6 +15,9 @@ import Home from "../pages/Home/Home";
 import PetListing from "../pages/PetListing/PetListing";
 import PetDetail from '../pages/PetListing/PetDetailPage/PetDetail';
 import Campaigns from "../pages/CamaignsPage/Campaigns/Campaigns";
+import CampaignDetails from "../pages/CamaignsPage/CampaignDetails/CampaignDetails";
+import DonationPage from "../pages/DonationPage/DonationPage";
+import StripePaymentPage from "../pages/CamaignsPage/StripePaymentPage.jsx/StripePaymentPage";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +39,18 @@ const router = createBrowserRouter([
       {
         path:"/campaigns",
         element:<Campaigns />
+      },
+      {
+        path:"/campaigns/:id",
+        element: <PrivateRoute><CampaignDetails /> </PrivateRoute>
+      },
+      {
+        path: "/donate/:id",
+        element: <PrivateRoute> <DonationPage /> </PrivateRoute>
+      },
+      {
+        path: "/stripe-payment",
+        element: <PrivateRoute> <StripePaymentPage /> </PrivateRoute>
       },
       {
         path: "/contact",
@@ -75,7 +90,7 @@ const router = createBrowserRouter([
         Component: MyAddedPets,
       },
       {
-        path: "/dashboard/adoption",
+        path: "/dashboard/adoptionRequest",
         element: <h1>adoption</h1>,
       },
       {

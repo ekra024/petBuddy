@@ -4,13 +4,14 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import DonationProgressBar from "./DonationCamp/DonationProgressBar";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyDonationCamp = () => {
 
   const axiosSecure = useAxiosSecure();
   const {user} = useAuth();
 
-  const {data: campaigns=[], isLoading} = useQuery({
+  const {data: campaigns=[], isLoading, refetch} = useQuery({
     queryKey: ['myDonationCampaigns', user],
     enabled: !!user.email,
     queryFn: async () => {
@@ -20,6 +21,16 @@ const MyDonationCamp = () => {
   })
 
   console.log(campaigns);
+
+  const handlePause = async(campId, currentStatus) => {
+    const res = await axiosSecure.patch(`/campaigns/pause/${campId}`, {paused: !currentStatus});
+    if(res.data.modifiedCount > 0){
+      Swal.fire('Success', `Campaign has been ${!currentStatus ? 'paused' : 'activated' } successfully`, 'success');
+      refetch();
+
+
+    }
+  }
 
   if(isLoading) return <h1>Loading</h1>
   return (
@@ -32,6 +43,7 @@ const MyDonationCamp = () => {
             <th className="p-3 border">Pet Name</th>
             <th className="p-3 border">Max Amount</th>
             <th className="p-3 border">Progress</th>
+            <th className="p-3 border">Status</th>
             <th className="p-3 border">Actions</th>
           </tr>
         </thead>
@@ -39,11 +51,9 @@ const MyDonationCamp = () => {
         <tbody>
           {
             campaigns.map((camp) => {
-              const donatedAmount = parseInt(camp.donatedAmount);
-              const TargetAmount = parseInt(camp.targetAmount);
-
+  
               const percent = Math.min(
-                (donatedAmount/ TargetAmount)*100,
+                (camp.donatedAmount/ camp.targetAmount)*100,
                 100
               );
 
@@ -57,6 +67,9 @@ const MyDonationCamp = () => {
                   <td className="p-3 border font-mediun">{camp.targetAmount} BDT</td>
                   <td className="p-3 w-1/4 lg:w-1/2 border font-medium" > <DonationProgressBar percent={percent} /> 
                    </td>
+                   <td className="p-3 border ">
+                     <button onClick={()=> handlePause(camp._id, camp.paused)} className={`font-medium ${camp.paused ? "text-purple-500" : "text-red-600"} `}>{camp.paused ? "Unpause " : "Pause"}</button>
+                   </td>                
                   <td className="p-3 border font-medium"> <div className="flex justify-around gap-4">
                     <Link to={`/dashboard/updateMyDonation/${camp._id}`} className="border px-2 bg-[blue] text-white">Edit</Link>
                   <button className=" px-2 border bg-[purple] text-white">View</button></div> </td>
