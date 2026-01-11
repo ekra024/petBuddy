@@ -33,6 +33,7 @@ const CreateDonationCamp = () => {
       userEmail,
       donatedAmount: 0,
       date,
+      paused:false,
     };
     console.log(campInfo);
 

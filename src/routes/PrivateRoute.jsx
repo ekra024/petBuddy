@@ -6,15 +6,11 @@ const PrivateRoute = ({children}) => {
 
   const {user, loading} = useAuth();
   const location = useLocation();
-  console.log(loading);
-  console.log(user);
-  console.log(loading);
-  console.log(location);
 
 
   if(loading) return <progress className="progress w-56"></progress>
   else if(user && user?.email) return children;
-  return <Navigate state={location.pathname} to='/signUp'></Navigate>
+  return <Navigate state={location.pathname} to='/signIn'></Navigate>
 };
 
 export default PrivateRoute;

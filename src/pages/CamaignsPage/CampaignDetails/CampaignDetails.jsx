@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { Link, useParams } from 'react-router-dom';
 import DonationModal from '../DonationModal/DonationModal';
+import Swal from 'sweetalert2';
 
 const CampaignDetails = () => {
 
   const axiosSecure = useAxiosSecure();
   const {id} = useParams();
   const [openModal, setOpenModal] = useState(false);
+  const [openDonation, setOpenDonation] = useState(true);
   
   const {data: campaign, isLoading} = useQuery({
     queryKey: ['campaignDetail'],
@@ -18,6 +20,28 @@ const CampaignDetails = () => {
     }
   })
   console.log(campaign);
+
+  const handleDonation=()=>{
+    const toDay = new Date();
+    const deadLine = new Date(campaign.LastDate);
+
+    if(deadLine < toDay) {
+      setOpenDonation(false);
+      Swal.fire("info","Last Date Gone",true);
+      return;
+    }
+    if(campaign.targetAmount <= campaign.donatedAmount) {
+      setOpenDonation(false);
+      Swal.fire("info","Donation is Completed",true);
+      return;
+    }
+    if(campaign.paused === true) {
+      setOpenDonation(false);
+      Swal.fire("info","Campaign is Paused",true);
+      return alert('donation paused')
+    }
+    setOpenModal(true);
+  }
 
   if(isLoading) return <h2>Loading...</h2>
   return (
@@ -41,13 +65,13 @@ const CampaignDetails = () => {
             <p className="light-blue mb-4">{campaign.description}</p>
 
             <div className="grid grid-cols-2 gap-4 text-sm">
-              <p><strong>Target Amount:</strong> ${campaign.requiredAmount}</p>
+              <p><strong>Target Amount:</strong> ${campaign.targetAmount}</p>
               <p><strong>Donated Amount:</strong> ${campaign.donatedAmount}</p>
               <p><strong>Last Date:</strong> {new Date(campaign.LastDate).toLocaleDateString()}</p>   
               <p className='md:text-[12px] lg:text-sm' ><strong>Owner:</strong> {campaign.created_by}</p>
             </div>
             <div className='text-center mt-8 '>
-              <button onClick={() => setOpenModal(true)} className={`mt-6 px-6 py-2 rounded-3xl  ${campaign.paused?"bg-gray-400 cursor-not-allowed":"bg-[purple] text-white hover:bg-purple-900 "} `}>Donate Now </button>
+              <button onClick={handleDonation} className={`mt-6 px-6 py-2 rounded-3xl  ${ !openDonation ?"bg-gray-400 cursor-not-allowed":"bg-[purple] text-white hover:bg-purple-900 "} `}>Donate Now </button>
             </div>
           </div>
         </div>

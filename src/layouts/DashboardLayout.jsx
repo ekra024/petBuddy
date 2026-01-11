@@ -10,16 +10,20 @@ import {
   BanknotesIcon,
   Bars3Icon,
   ArrowRightOnRectangleIcon,
+  Squares2X2Icon,
+  GiftIcon,
 } from "@heroicons/react/24/outline";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
+import useAdmin from "../hooks/useAdmin";
 
 const DashboardLayout = () => {
   const [open, setOpen] = useState(true);
   const { user, loading, logoutUser } = useAuth();
   const [showLogout, setShowLogout] = useState(false);
-  const navigate = useNavigate();
+  const [isAdmin, isLoading] = useAdmin();
+
 
   const menuItems = [
     {
@@ -54,6 +58,24 @@ const DashboardLayout = () => {
     },
   ];
 
+  const adminMenus = [
+  {
+    name: "All Pets",
+    router: "/dashboard/admin/allPets",
+    icon: <Squares2X2Icon className="w-6 h-6" />,
+  },
+  {
+    name: "All Campaigns",
+    router: "/dashboard/admin/allCampaigns",
+    icon: <MegaphoneIcon className="w-6 h-6" />,
+  },
+  {
+    name: "All Donations",
+    router: "/dashboard/admin/allDonations",
+    icon: <GiftIcon className="w-6 h-6" />,
+  },
+  ]
+
   const handleUserLogout = async() => {
     await logoutUser()
       .then(() => {
@@ -66,7 +88,7 @@ const DashboardLayout = () => {
       });
   };
 
-  if (loading) <p>Loadding</p>;
+  if (loading || isLoading) return<p>Loadding...</p>;
   else
     return (
       <div className="flex min-h-screen bg-gray-100">
@@ -84,6 +106,16 @@ const DashboardLayout = () => {
           </div>
 
           <nav className="mt-6 flex flex-col gap-2">
+            {isAdmin && adminMenus.map((item, i) => (
+              <NavLink to={item.router}
+                key={i}
+                className="flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 text-gray-700 hover:bg-indigo-50 transition"
+                whileHover={{ scale: 1.02 }}
+              >
+                {item.icon}
+                {open && <span className="font-medium">{item.name}</span>}
+              </NavLink>
+            )) }
             {menuItems.map((item, i) => (
               <NavLink
                 to={item.router}
@@ -95,6 +127,7 @@ const DashboardLayout = () => {
                 {open && <span className="font-medium">{item.name}</span>}
               </NavLink>
             ))}
+           
           </nav>
         </motion.aside>
 

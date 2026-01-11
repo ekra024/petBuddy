@@ -27,8 +27,17 @@ const MyAdoptionRequest = () => {
     });
     refetch();
   }
-  const handleAccept = async(id) => {
-    await axiosSecure.patch(`/pet/adoptions/${id}`,{status: 'accepted'});
+  const handleAccept = async(id, petId) => {
+    const adoptionStatus = await axiosSecure.get(`/pets/${petId}`);
+    if(adoptionStatus.adopted === false) {
+      Swal.fire({
+        icon:'wrong',
+        title:'Already Adopted',
+        showConfirmButton: true,
+      })
+      return;
+    }
+    await axiosSecure.patch(`/pet/adoptions/${id}`,{status: 'accepted', petId });
     Swal.fire({
       icon: 'success',
       title: 'Adoption Request Accepted Successfully',
@@ -67,7 +76,7 @@ const MyAdoptionRequest = () => {
               {adoption.status === 'pending' ? (
                 <td className="p-3 border">
                 <div>
-                  <button onClick={() => {handleAccept(adoption._id)}}className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 lg:mr-2 lg:mb-0 mb-2">
+                  <button onClick={() => {handleAccept(adoption._id, adoption.petId)}}className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 lg:mr-2 lg:mb-0 mb-2">
                     Accept
                   </button>
                   <button onClick={() => handleCancel(adoption._id)} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">

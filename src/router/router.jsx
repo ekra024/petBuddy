@@ -21,6 +21,12 @@ import StripePaymentPage from "../pages/CamaignsPage/StripePaymentPage.jsx/Strip
 import MyDonationPage from "../pages/Dashboard/MyDonation/MyDonationPage";
 import MyAdoptionRequest from "../pages/Dashboard/MyAdoptionRequest/MyAdoptionRequest";
 import UpdatePet from "../pages/Dashboard/AddAPet/UpdatePet";
+import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
+import AdminRoute from "../routes/AdminRoute";
+import Forbidden from "../pages/Forbidden/Forbidden"
+import AllPets from "../pages/Dashboard/Admin/AllPets";
+import AllCampaigns from "../pages/Dashboard/Admin/AllCampaigns";
+import AllDonations from "../pages/Dashboard/Admin/AllDonations";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +83,10 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <h2>contact</h2>,
       },
+      {
+        path:"/forbidden",
+        Component: Forbidden
+      }
     ],
   },
   {
@@ -93,47 +103,63 @@ const router = createBrowserRouter([
       },
     ],
   },
+ 
   {
     path: "/dashboard",
     element: (
       <PrivateRoute>
-        {" "}
-        <DashboardLayout />{" "}
+        <DashboardLayout />
       </PrivateRoute>
     ),
     children: [
       {
-        path: "/dashboard/addAPet",
+        index:true,
+        Component: DashboardHome
+      },
+      {
+        path: "addAPet",
         element: <AddAPet />,
       },
       {
-        path: "/dashboard/myAddedPets",
+        path: "myAddedPets",
         Component: MyAddedPets,
       },
       {
-        path: "/dashboard/update-pet/:id",
+        path: "update-pet/:id",
         element: <UpdatePet />
       },
       {
-        path: "/dashboard/adoptionRequest",
+        path: "adoptionRequest",
         element: <MyAdoptionRequest />,
       },
       {
-        path: "/dashboard/createDonation",
+        path: "createDonation",
         element: <CreateDonation />,
       },
 
       {
-        path: "/dashboard/myDonationCamp",
+        path: "myDonationCamp",
         element: <MyDonationCamp />,
       },
       {
-        path: "/dashboard/updateMyDonation/:id",
+        path: "updateMyDonation/:id",
         element: <UpdateDonationCamp />,
       },
       {
-        path: "/dashboard/myDonation",
+        path: "myDonation",
         element: <MyDonationPage />,
+      },
+      {
+        path:"admin/allPets",
+        element:<AdminRoute> <AllPets /> </AdminRoute>
+      },
+      {
+        path:"admin/allCampaigns",
+        element:<AdminRoute> <AllCampaigns /> </AdminRoute>
+      },
+      {
+        path:"admin/allDonations",
+        element:<AdminRoute> <AllDonations /> </AdminRoute>
       },
     ],
   },
