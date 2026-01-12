@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import useAxios from '../../hooks/useAxios'
 import axios from "axios";
 import { toast } from "react-toastify";
+import SocialLogin from "./SocialLogin";
 
 const SignUp = () => {
 
@@ -15,6 +16,7 @@ const SignUp = () => {
   const [profilePic, setProfilePic] = useState('');
   const axiosBasic = useAxios();
   const navigate = useNavigate();
+  const location = useLocation();
   const path = location?.state || "/";
 
   const {register, handleSubmit, formState:{errors}, } = useForm();
@@ -28,9 +30,7 @@ const SignUp = () => {
     console.log(data);
 
     createUser(data.email, data.password)
-    .then(async(result) => {
-      console.log(result.user);
-
+    .then(async() => {
       const userInfo = {
         email: data.email,
         role: 'user',
@@ -38,9 +38,7 @@ const SignUp = () => {
         last_log_in : new Date().toISOString(),
       }
 
-      const res = await axiosBasic.post('/users', userInfo)
-
-      console.log(res.data);
+       await axiosBasic.post('/users', userInfo)
       
       const userProfile = {
         displayName: data.name,
@@ -54,13 +52,12 @@ const SignUp = () => {
           navigate(path);
         },2500)
       })
-      .catch((err)=> {
-        console.log(err)
+      .catch(()=> {
         toast.error('Something is Error for profile update')
       })
     })
-    .catch((error)=>{
-      console.log(error)
+    .catch(()=>{
+      
       toast.error('Something is Error')
     })
 
@@ -174,19 +171,14 @@ const SignUp = () => {
       </div>
 
       {/* Google Sign In */}
-      <button
-        // onClick={handleGoogleSignIn}
-        className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-xl hover:shadow-lg transition-shadow mb-4"
-      >
-        <FcGoogle size={24} />
-        <span className="font-medium">Sign up with Google</span>
-      </button>
+      <SocialLogin path={path} />
 
       {/* Already registered */}
       <p className="text-center text-gray-600">
-        Already registered?{" "}
-        <Link
+        Already registered?
+        <Link 
           to="/signIn"
+          state={path}
           className="text-blue-500 font-semibold hover:underline"
         >
           Login

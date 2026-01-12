@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import LoaddingPage from "../../../Loading/LoaddingPage";
 
 const MyAddedPets = () => {
   const axiosSecure = useAxiosSecure();
@@ -106,10 +107,14 @@ const MyAddedPets = () => {
     getPaginationRowModel: getPaginationRowModel(),
   });
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <LoaddingPage />;
 
   return (
-    <div className="p-6 bg-white shadow rounded-xl">
+    <div>
+      {pets.length === 0 ? (
+          <div className="flex justify-center items-center">
+            No Data to Show.
+          </div>): <div className="p-6 bg-white shadow rounded-xl">
       <h2 className="text-3xl font-bold mb-4 text-[#002169] text-center">
         My Added Pets
       </h2>
@@ -146,6 +151,7 @@ const MyAddedPets = () => {
           ))}
         </tbody>
       </table>
+    </div> }
     </div>
   );
 };

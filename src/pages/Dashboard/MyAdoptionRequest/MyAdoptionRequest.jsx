@@ -3,6 +3,7 @@ import useAuth from '../../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import LoaddingPage from '../../../Loading/LoaddingPage';
 
 const MyAdoptionRequest = () => {
 
@@ -46,10 +47,16 @@ const MyAdoptionRequest = () => {
     refetch();
   }
 
-  if(isLoading) return <h2>Loading...</h2>
+  if(isLoading) return <LoaddingPage />
   console.log(myAdoption);
   return (
-     <div className="p-6 bg-white shadow rounded-xl">
+     <div>
+      {
+        myAdoption.length === 0 ? (
+          <div className="flex justify-center items-center">
+            No Data to Show.
+          </div>):(
+            <div className="p-6 bg-white shadow rounded-xl">
       <h2 className="text-3xl font-bold text-center mb-4 text-[#002169]">
         Adoption Requests 
       </h2>
@@ -92,6 +99,9 @@ const MyAdoptionRequest = () => {
         </tbody>
       </table>
     </div>
+          ) 
+      }
+     </div>
   );
 };
 

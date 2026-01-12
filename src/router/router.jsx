@@ -26,7 +26,8 @@ import AdminRoute from "../routes/AdminRoute";
 import Forbidden from "../pages/Forbidden/Forbidden"
 import AllPets from "../pages/Dashboard/Admin/AllPets";
 import AllCampaigns from "../pages/Dashboard/Admin/AllCampaigns";
-import AllDonations from "../pages/Dashboard/Admin/AllDonations";
+import AllUsers from "../pages/Dashboard/Admin/AllUsers";
+import ContactMap from "../pages/Contact/ContactMap";
 
 const router = createBrowserRouter([
   {
@@ -81,7 +82,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <h2>contact</h2>,
+        element: <ContactMap />,
       },
       {
         path:"/forbidden",
@@ -158,8 +159,8 @@ const router = createBrowserRouter([
         element:<AdminRoute> <AllCampaigns /> </AdminRoute>
       },
       {
-        path:"admin/allDonations",
-        element:<AdminRoute> <AllDonations /> </AdminRoute>
+        path:"admin/allUsers",
+        element:<AdminRoute> <AllUsers /> </AdminRoute>
       },
     ],
   },

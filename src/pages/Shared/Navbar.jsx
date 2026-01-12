@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import PetLogo from "./PetLogo";
 import { IoIosLock } from "react-icons/io";
 import useAuth from "../../hooks/useAuth";
@@ -15,7 +15,8 @@ const Navbar = () => {
   const { user, logoutUser } = useAuth();
   const [open, setOpen] = useState(false);
   console.log(user);
-
+  const location = useLocation();
+  console.log(location);
   const menu = [
     { item: "Home", route: "/" },
     { item: "Pets", route: "/pets" },

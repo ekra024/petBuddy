@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import LoaddingPage from '../../../Loading/LoaddingPage';
 
 const MyDonationPage = () => {
 
@@ -18,10 +19,14 @@ const MyDonationPage = () => {
   })
 
 
-  if(isLoading) return <h2>Loading...</h2>
-  console.log(myDonations);
+  if(isLoading) return <LoaddingPage />
   return (
-    <div className="p-6 bg-white shadow rounded-xl">
+    <div>
+      {
+        myDonations.length === 0 ? (
+          <div className="flex justify-center items-center">
+            No Data to Show.
+          </div>):(<div className="p-6 bg-white shadow rounded-xl">
       <h2 className="text-3xl font-bold text-center mb-4 text-[#002169]">
         My Donation Campaigns
       </h2>
@@ -46,6 +51,8 @@ const MyDonationPage = () => {
           ))}
         </tbody>
       </table>
+    </div>)
+      }
     </div>
   );
 };

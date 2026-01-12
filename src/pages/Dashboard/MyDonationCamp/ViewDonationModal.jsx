@@ -1,6 +1,7 @@
 import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import LoaddingPage from "../../../Loading/LoaddingPage";
 
 const ViewDonationModal = ({ campaignId, setOpenModal }) => {
   const id = campaignId;
@@ -16,7 +17,7 @@ const ViewDonationModal = ({ campaignId, setOpenModal }) => {
   });
 
   console.log(donations);
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <LoaddingPage />;
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white rounded-xl w-full max-w-md p-6 relative">

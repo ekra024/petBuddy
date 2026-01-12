@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import SingleCampaign from "./SingleCampaign";
 import useAxios from "../../../hooks/useAxios";
+import LoaddingPage from "../../../Loading/LoaddingPage";
 
 const Campaigns = () => {
   const axios = useAxios();
@@ -16,7 +17,7 @@ const Campaigns = () => {
 
 
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading) return <LoaddingPage />;
   return (
     <div className="bg-blue-50 px-10 pt-5 pb-16">
       <h1 className="text-4xl text-[#002169] text-center font-semibold pb-10">Available Campaigns Here</h1>

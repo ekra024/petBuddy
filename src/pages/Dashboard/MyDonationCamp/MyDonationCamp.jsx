@@ -6,18 +6,20 @@ import DonationProgressBar from "./DonationProgressBar";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import ViewDonationModal from "./ViewDonationModal";
+import LoaddingPage from "../../../Loading/LoaddingPage";
 
 const MyDonationCamp = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [openModal, setOpenModal] = useState(false);
   const [campaignId, setCampaignId] = useState(null);
+  
   const {
     data: campaigns = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["myDonationCampaigns", user],
+    queryKey: ["myDonationCampaigns", user.email],
     enabled: !!user.email,
     queryFn: async () => {
       const res = await axiosSecure.get(`/campaigns/user/${user.email}`);
@@ -48,9 +50,14 @@ const MyDonationCamp = () => {
     setOpenModal(true);
   }
 
-  if (isLoading) return <h1>Loading</h1>;
+  if (isLoading) return <LoaddingPage />
   return (
-    <div className="p-6 bg-white shadow rounded-xl">
+   <div>
+    {
+      campaigns.length === 0 ? (
+          <div className="flex justify-center items-center">
+            No Data to Show.
+          </div>):( <div className="p-6 bg-white shadow rounded-xl">
       <h2 className="text-3xl font-bold text-center mb-4 text-[#002169]">
         My Donation Campaigns
       </h2>
@@ -125,7 +132,9 @@ const MyDonationCamp = () => {
         </tbody>
       </table>
       
-    </div>
+    </div>)
+    }
+   </div>
   );
 };
 

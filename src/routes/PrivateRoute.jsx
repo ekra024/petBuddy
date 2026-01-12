@@ -1,4 +1,3 @@
-import React from 'react';
 import useAuth from '../hooks/useAuth';
 import { Navigate, useLocation } from 'react-router-dom';
 
@@ -6,11 +5,11 @@ const PrivateRoute = ({children}) => {
 
   const {user, loading} = useAuth();
   const location = useLocation();
-
+  console.log(user, loading, location);
 
   if(loading) return <progress className="progress w-56"></progress>
-  else if(user && user?.email) return children;
-  return <Navigate state={location.pathname} to='/signIn'></Navigate>
+  if(user && user?.email) return children;
+  return <Navigate state={{ from: location }} replace to='/signIn'></Navigate>
 };
 
 export default PrivateRoute;

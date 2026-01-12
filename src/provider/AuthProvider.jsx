@@ -27,17 +27,22 @@ const AuthProvider = ({children}) => {
     return signInWithPopup(auth, provider);
   }
 
-  const logoutUser = () => {
+  const logoutUser = async() => {
     setLoading(true);
-    return signOut(auth);
+
+    await signOut(auth);                    
+
+    localStorage.clear(); 
+    sessionStorage.clear();                  
+  
+    setUser(null);
+    setLoading(false);
+
   }
 
   useEffect(() => {
-    setLoading(true);
-    console.log('hit ouState')
-    const unsubscribe = onAuthStateChanged(auth, (curUser) => {
+    const unsubscribe = onAuthStateChanged(auth, curUser => {
       setUser(curUser);
-      console.log(curUser);
       setLoading(false);
     })
     return () => unsubscribe();

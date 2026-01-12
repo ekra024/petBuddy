@@ -16,12 +16,12 @@ const AllPets = () => {
    const [sorting, setSorting] = useState([]);
    const {user} = useAuth();
   const axiosSecure = useAxiosSecure(); 
-  // Fetch all pets (admin)
+
   const { data: pets = [], isLoading } = useQuery({
     queryKey: ["admin-all-pets"],
     enabled:!!user.email,
     queryFn: async () => {
-      const res = await axiosSecure.get(`AllPets/admin/${user.email}`);
+      const res = await axiosSecure.get(`/allPets/admin/${user.email}`);
       return res.data;
     },
   });
