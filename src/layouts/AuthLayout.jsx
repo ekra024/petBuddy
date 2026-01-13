@@ -2,7 +2,7 @@ import React from "react";
 import PetLogo from "../pages/Shared/PetLogo";
 import { Outlet } from "react-router-dom";
 import Lottie from "lottie-react";
-import petAnimation from "../../public/SignUp.json";
+import petAnimation from "../assets/SignUp.json";
 import { ToastContainer } from "react-toastify";
 
 const AuthLayout = () => {

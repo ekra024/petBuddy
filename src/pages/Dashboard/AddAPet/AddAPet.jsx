@@ -31,7 +31,7 @@ const AddAPet = () => {
   const onSubmit = (data) => {
     const img = pic;
     const date = new Date().toISOString();
-    console.log("Pet Data:", data);
+   
 
     const petInfo = {
       addedBy: user?.displayName,
@@ -44,7 +44,6 @@ const AddAPet = () => {
 
     axiosSecure.post("/pets", petInfo)
     .then((res) => {
-      console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
           title: "Thank you!",
@@ -60,7 +59,6 @@ const AddAPet = () => {
 
   const handleImageUpload = async (e) => {
     const image = e.target.files[0];
-    console.log(image);
 
     const formData = new FormData();
     formData.append("image", image);

@@ -48,7 +48,7 @@ const MyAdoptionRequest = () => {
   }
 
   if(isLoading) return <LoaddingPage />
-  console.log(myAdoption);
+ 
   return (
      <div>
       {

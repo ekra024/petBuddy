@@ -26,7 +26,7 @@ const DashboardLayout = () => {
   const { user, loading, logoutUser } = useAuth();
   const [showLogout, setShowLogout] = useState(false);
   const [role, isLoading] = useAdmin();
-  console.log(role);
+  
 
   const menuItems = [
     {
@@ -84,7 +84,7 @@ const DashboardLayout = () => {
     await logoutUser()
       .then(() => {
         toast.success("Logout Sucessfully");
-        console.log(user);
+       
       })
       .catch(() => {
         toast.error("Error Occured");

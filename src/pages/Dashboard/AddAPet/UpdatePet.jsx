@@ -5,6 +5,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useForm } from 'react-hook-form';
 import useAxios from '../../../hooks/useAxios';
 import Swal from 'sweetalert2';
+import LoaddingPage from '../../../Loading/LoaddingPage';
 
 
 const UpdatePet = () => {
@@ -39,7 +40,6 @@ const UpdatePet = () => {
   },[reset, petInfo]);
 
   const onSubmit = (data) => {
-    console.log(data);
     const updatedPetInfo = {
       ...data,
       pet_image: image || petInfo.pet_image
@@ -65,8 +65,8 @@ const UpdatePet = () => {
     setImage(res.data.data.url);
   }
 
-  if(isLoading) return <h2>Loading...</h2>
-  console.log(petInfo);
+  if(isLoading) return <LoaddingPage />
+
   return (
      <div className="max-w-3xl mx-auto my-10 p-8 rounded-2xl shadow-lg bg-white border border-purple-200">
       {/* Header */}

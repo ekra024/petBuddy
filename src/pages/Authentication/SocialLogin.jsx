@@ -9,7 +9,7 @@ const SocialLogin = ({path}) => {
   const navigate = useNavigate();
 
   const axios = useAxios();
-  console.log(path);
+ 
 
   const handleGoogleSignIn = () => {
     googleLogin()

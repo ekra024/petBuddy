@@ -41,7 +41,7 @@ const MyAddedPets = () => {
     
   }
 
-  console.log(pets);
+
 
   const columns = [
     {

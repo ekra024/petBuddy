@@ -64,8 +64,7 @@ const StripePaymentPage = () => {
        Swal.fire("Donation Successful", `Thank you for donating ${amount}TK.`, "success");
        navigate('/dashboard/myDonation')
       }
-    }catch(err){
-      console.log(err);
+    }catch{
       Swal.fire("Error","Something went wrong. Please try again.","error");
     }finally{
       setProcessing(false);

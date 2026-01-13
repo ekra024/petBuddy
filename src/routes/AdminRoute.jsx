@@ -8,7 +8,7 @@ const AdminRoute = ({children}) => {
   const {user, loading} = useAuth();
    const [isAdmin, isLoading] = useAdmin();
   const location = useLocation();
-  console.log('AdminRoute')
+
 
 
   if(loading || isLoading) return <LoaddingPage /> 

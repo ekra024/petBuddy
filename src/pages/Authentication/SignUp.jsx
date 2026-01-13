@@ -27,7 +27,7 @@ const SignUp = () => {
   }
   
   const onSubmit = (data) => {
-    console.log(data);
+   
 
     createUser(data.email, data.password)
     .then(async() => {
@@ -67,14 +67,11 @@ const SignUp = () => {
   
     const image = e.target.files[0];
 
-    console.log(image);
-
     const formData = new FormData();
     formData.append('image', image);
     const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_upload_key}`
 
     const res = await axios.post(imageUploadUrl, formData);
-    console.log(res.data);
     setProfilePic(res.data.data.url)
 
   }

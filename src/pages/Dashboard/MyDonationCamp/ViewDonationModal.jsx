@@ -5,7 +5,7 @@ import LoaddingPage from "../../../Loading/LoaddingPage";
 
 const ViewDonationModal = ({ campaignId, setOpenModal }) => {
   const id = campaignId;
-  console.log(id);
+
   const axiosSecure = useAxiosSecure();
 
   const { isLoading, data: donations = [] } = useQuery({
@@ -16,7 +16,6 @@ const ViewDonationModal = ({ campaignId, setOpenModal }) => {
     },
   });
 
-  console.log(donations);
   if (isLoading) return <LoaddingPage />;
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">

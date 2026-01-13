@@ -20,7 +20,7 @@ const CreateDonationCamp = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
+ 
     const created_by = user.displayName;
     const userEmail = user.email;
     const date = new Date().toISOString();
@@ -35,7 +35,7 @@ const CreateDonationCamp = () => {
       date,
       paused:false,
     };
-    console.log(campInfo);
+
 
     axiosSecure.post("/campaigns", campInfo).then((res) => {
       if (res.data.insertedId) {
@@ -48,7 +48,7 @@ const CreateDonationCamp = () => {
 
   const handleImageUpload = async (e) => {
     const image = e.target.files[0];
-    console.log(image);
+  
 
     const formData = new FormData();
     formData.append("image", image);

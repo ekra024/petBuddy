@@ -16,7 +16,7 @@ const SignIn = () => {
   const location = useLocation();
   const path = location.state?.from?.pathname || "/";
 
-  console.log(path);
+ 
   
 
   const [showPassword, setShowPassword] = useState(false);

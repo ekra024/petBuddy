@@ -25,7 +25,7 @@ const AllPets = () => {
       return res.data;
     },
   });
-  console.log(pets);
+
   const columns = useMemo(
     () => [
       {

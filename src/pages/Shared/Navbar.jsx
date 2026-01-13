@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PetLogo from "./PetLogo";
 import { IoIosLock } from "react-icons/io";
 import useAuth from "../../hooks/useAuth";
-import { FaHome, FaPlus, FaSignOutAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import {
   ArrowRightOnRectangleIcon,
   Squares2X2Icon,
@@ -14,9 +13,7 @@ import {
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
   const [open, setOpen] = useState(false);
-  console.log(user);
-  const location = useLocation();
-  console.log(location);
+ 
   const menu = [
     { item: "Home", route: "/" },
     { item: "Pets", route: "/pets" },
@@ -94,11 +91,7 @@ const Navbar = () => {
             </div>
             <AnimatePresence>
               {open && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9, y: -10 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, y: -10 }}
-                  transition={{ duration: 0.15 }}
+                <div
                   className="absolute right-0 mt-3 w-48 
                        bg-white shadow-xl rounded-xl border border- py-2 z-50"
                 >
@@ -135,7 +128,7 @@ const Navbar = () => {
                       Logout
                     </span>
                   </button>
-                </motion.div>
+                </div>
               )}
             </AnimatePresence>
             

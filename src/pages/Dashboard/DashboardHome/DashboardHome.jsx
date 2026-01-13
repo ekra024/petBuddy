@@ -7,7 +7,7 @@ import Forbidden from "../../Forbidden/Forbidden"
 
 const DashboardHome = () => {
   const [role, isLoading] = useAdmin();
-  console.log(role);
+
   if (isLoading) return <LoaddingPage />;
   if (role === "user") return <UserDashboardHome />;
   else if(role === 'admin') return <AdminDashboard />

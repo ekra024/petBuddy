@@ -15,10 +15,10 @@ const DonationModal = ({campaign, closeModal}) => {
       amount: "",
     }
   })
-  console.log(user)
+  
 
   const onSubmit = (data) => {
-    console.log(data);
+   
     Swal.fire({
       title: "Confirm Donation",
       text:`Donate $${data.amount} to ${campaign.petName}?`,

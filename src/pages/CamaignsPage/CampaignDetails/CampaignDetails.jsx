@@ -19,7 +19,7 @@ const CampaignDetails = () => {
       return res.data;
     }
   })
-  console.log(campaign);
+ 
 
   const handleDonation=()=>{
     const toDay = new Date();

@@ -5,7 +5,7 @@ const SingleCampaign = ({camp}) => {
   return (
     <div className='bg-white border rounded-4xl shadow-2xl'>
       <div>
-        <img className="w-full h-60 object-cover rounded-t-4xl " src={petImage} alt="" />
+        {petImage && <img className="w-full h-60 object-cover rounded-t-4xl " src={petImage} alt="" />}
       </div>
       <div className='font-semibold my-5 text-[#002169]'>
         <div className='text-center text-3xl'>{petName}</div>

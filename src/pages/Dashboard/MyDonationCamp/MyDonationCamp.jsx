@@ -27,7 +27,7 @@ const MyDonationCamp = () => {
     },
   });
 
-  console.log(campaigns);
+
 
   const handlePause = async (campId, currentStatus) => {
     const res = await axiosSecure.patch(`/campaigns/pause/${campId}`, {
