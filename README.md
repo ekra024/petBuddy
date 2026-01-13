@@ -1,7 +1,7 @@
 # 🐾 PetBuddy
 
 [![Website](https://img.shields.io/badge/Live-Demo-blue?style=flat-square)](https://petbuddy-31d79.web.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-black?style=flat-square&logo=github)](https://github.com/ekra024/pet_buddy_server)
+[![Server](https://img.shields.io/badge/GitHub-Repo-black?style=flat-square&logo=github)](https://github.com/ekra024/pet_buddy_server)
 
 
 **PetBuddy** is a full-stack pet adoption and donation platform that connects pet owners, adopters, and donors. Built with modern web technologies, it provides a seamless user experience with a role-based dashboard for users, admins, and donors.
