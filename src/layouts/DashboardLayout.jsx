@@ -19,6 +19,7 @@ import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import useAdmin from "../hooks/useAdmin";
 import LoaddingPage from "../Loading/LoaddingPage";
+import { FaHome } from "react-icons/fa";
 
 const DashboardLayout = () => {
   const [open, setOpen] = useState(true);
@@ -108,6 +109,10 @@ const DashboardLayout = () => {
           </div>
 
           <nav className="mt-6 flex flex-col gap-2">
+            <NavLink to="/dashboard" className="flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 text-gray-700 hover:bg-indigo-50 transition font-semibold">
+              <FaHome className="w-6 h-6" />
+              {open && <span>Home</span>}
+            </NavLink>
             {role==="admin" && (
               <>
                 {adminMenus.map((item, i) => (
