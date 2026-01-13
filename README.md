@@ -36,8 +36,8 @@
 | Frontend | Backend | Database | Other Tools |
 |----------|--------|----------|------------|
 | React | Node.js | MongoDB | Firebase Authentication |
-| Tailwind CSS | Express.js | Mongoose | TanStack Query |
-| React Router | Firebase Auth | Cloud Firestore | React Hook Form |
+| Tailwind CSS | Express.js |  | TanStack Query |
+| React Router | Firebase Auth | | React Hook Form |
 | Framer Motion | Stripe (Payment Integration) | | React Icons |
 
 ---
