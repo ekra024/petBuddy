@@ -22,7 +22,7 @@ import LoaddingPage from "../Loading/LoaddingPage";
 import { FaHome } from "react-icons/fa";
 
 const DashboardLayout = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const { user, loading, logoutUser } = useAuth();
   const [showLogout, setShowLogout] = useState(false);
   const [role, isLoading] = useAdmin();

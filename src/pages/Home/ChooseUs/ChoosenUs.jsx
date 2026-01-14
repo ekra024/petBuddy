@@ -6,8 +6,8 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 const ChoosenUs = () => {
   return (
-    <div className="w-full bg-blue-50 lg:flex gap-5 p-5 pb-15">
-      <div data-aos="zoom-in-right" className="lg:w-1/2 flex justify-center items-center">
+    <div className="w-full bg-blue-50 lg:flex gap-30 p-5 px-20 pb-15">
+      <div data-aos="zoom-in-right" className="lg:w-1/2 flex justify-center items-center px-10">
         <img
           src={Image1}
           alt="Banner"

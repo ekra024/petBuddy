@@ -83,7 +83,7 @@ const UserDashboardHome = () => {
           ) : (
             recentDonations.map((donation) => (
               <div key={donation._id} className="flex justify-between text-sm">
-                <span>{donation.transactionId}</span>
+                <span>{donation.donorName}</span>
                 <span className="font-medium">৳{donation.amount}</span>
               </div>
             ))
