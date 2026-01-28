@@ -6,6 +6,9 @@
 
 **PetBuddy** is a full-stack pet adoption and donation platform that connects pet owners, adopters, and donors. Built with modern web technologies, it provides a seamless user experience with a role-based dashboard for users, admins, and donors.
 
+email: admin@gmail.com
+password: 123456Aa
+
 ---
 
 ## 🌟 Features
