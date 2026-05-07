@@ -3,6 +3,7 @@ import useAxios from '../../../hooks/useAxios';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import SinglePet from './SinglePet';
 import { useInView } from 'react-intersection-observer';
+import LoaddingPage from '../../../Loading/LoaddingPage';
 
 
 
@@ -36,7 +37,7 @@ const AvailablePets = () => {
     }
   },[inView, hasNextPage, fetchNextPage]);
 
-  if(isLoading) return <h2>Loading...</h2>
+  if(isLoading) return <LoaddingPage />
   return (
     <div className='w-full bg-blue-100 px-10 md:px-20 lg:px-25 py-10 text-center'>
       <div className='flex justify-between mb-10'>

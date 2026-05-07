@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import PetLogo from "../pages/Shared/PetLogo";
 import {
@@ -22,7 +22,15 @@ import LoaddingPage from "../Loading/LoaddingPage";
 import { FaHome } from "react-icons/fa";
 
 const DashboardLayout = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setOpen(window.innerWidth >= 1024);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const { user, loading, logoutUser } = useAuth();
   const [showLogout, setShowLogout] = useState(false);
   const [role, isLoading] = useAdmin();
@@ -109,14 +117,14 @@ const DashboardLayout = () => {
           </div>
 
           <nav className="mt-6 flex flex-col gap-2">
-            <NavLink to="/dashboard" className="flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 text-gray-700 hover:bg-indigo-50 transition font-semibold">
+            <NavLink end to="/dashboard" className={({ isActive }) => `flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 transition font-semibold ${isActive ? "bg-[#894b8d] text-white" : "text-gray-700 hover:bg-indigo-50"}`}>
               <FaHome className="w-6 h-6" />
               {open && <span>Home</span>}
             </NavLink>
             {role==="admin" && (
               <>
                 {adminMenus.map((item, i) => (
-                  <NavLink key={i} to={item.router} className="flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 text-gray-700 hover:bg-indigo-50 transition font-semibold">
+                  <NavLink key={i} to={item.router} className={({ isActive }) => `flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 transition font-semibold ${isActive ? "bg-[#894b8d] text-white" : "text-gray-700 hover:bg-indigo-50"}`}>
                     {item.icon}
                     {open && <span>{item.name}</span>}
                   </NavLink>
@@ -125,7 +133,7 @@ const DashboardLayout = () => {
             )}
 
             {menuItems.map((item, i) => (
-              <NavLink key={i} to={item.router} className="flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 text-gray-700 hover:bg-indigo-50 transition font-semibold">
+              <NavLink key={i} to={item.router} className={({ isActive }) => `flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 transition font-semibold ${isActive ? "bg-[#894b8d] text-white" : "text-gray-700 hover:bg-indigo-50"}`}>
                 {item.icon}
                 {open && <span>{item.name}</span>}
               </NavLink>
