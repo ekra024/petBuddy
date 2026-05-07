@@ -65,14 +65,15 @@ cd pet_buddy
 npm install
 
 .env.local
-VITE_apiKey=AIzaSyCC8VgVvNyZ52u2rxdrlHGZE-Gvn8ZZwvA
-VITE_authDomain=petbuddy-31d79.firebaseapp.com
-VITE_projectId=petbuddy-31d79
-VITE_storageBucket=petbuddy-31d79.firebaseapp.com
-VITE_messagingSenderId=23598558324
-VITE_appId=1:23598558324:web:02502fb0b647901f557521
-VITE_image_upload_key=945928535d54eb87b7ab96e9ed697aba
-VITE_STRIPE_PUBLIC_KEY=pk_test_51QluNYGhZNGe7xGSBrcXyfsrhh0Mp7HSulzV28xGhzKCJP6qYCuNHiAFH2JmNiEvO17Q4DXUZDFroOXqLBugS43A00aQfpqEUM
+VITE_apiKey="your_api_key"
+VITE_authDomain="your_auth_domain"
+VITE_projectId="your_project_id"
+VITE_storageBucket="your_storage_bucket"
+VITE_messagingSenderId="your_messaging_sender_id"
+VITE_appId="your_app_id"
+VITE_API_URL="https://backend-sigma-flame-93.vercel.app/api"
+VITE_image_upload_key=your_image_upload_key
+VITE_STRIPE_PUBLIC_KEY=your_stripe_public_key 
 
 To run
 npm run dev
