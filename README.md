@@ -1,6 +1,6 @@
 # 🐾 PetBuddy
 
-[![Website](https://img.shields.io/badge/Live-Demo-blue?style=flat-square)](https://petbuddy-31d79.web.app/)
+[![Website](https://img.shields.io/badge/Live-Demo-blue?style=flat-square)](https://petbuddy-31d79.web.app)
 [![Server](https://img.shields.io/badge/GitHub-Repo-black?style=flat-square&logo=github)](https://github.com/ekra024/pet_buddy_server)
 
 
