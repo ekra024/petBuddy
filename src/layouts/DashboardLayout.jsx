@@ -102,11 +102,11 @@ const DashboardLayout = () => {
   if (loading || isLoading) return <LoaddingPage />;
   else
     return (
-      <div className="flex min-h-screen bg-gray-100">
+      <div className="flex h-screen overflow-hidden bg-gray-100">
         {/* Sidebar */}
         <motion.aside
           animate={{ width: open ? 245 : 70 }}
-          className="bg-white shadow-xl border-r border-gray-200 relative"
+          className="bg-white shadow-xl border-r border-gray-200 relative h-full overflow-y-auto shrink-0 z-20"
         >
           <div className="flex items-center justify-center gap-2">
             {open && <PetLogo />}
@@ -117,14 +117,14 @@ const DashboardLayout = () => {
           </div>
 
           <nav className="mt-6 flex flex-col gap-2">
-            <NavLink end to="/dashboard" className={({ isActive }) => `flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 transition font-semibold ${isActive ? "bg-[#894b8d] text-white" : "text-gray-700 hover:bg-indigo-50"}`}>
+            <NavLink end to="/dashboard" className={({ isActive }) => `flex w-50 items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 transition font-semibold ${isActive ? "bg-[#894b8d] text-white" : "text-gray-700 hover:bg-indigo-50"}`}>
               <FaHome className="w-6 h-6" />
               {open && <span>Home</span>}
             </NavLink>
             {role==="admin" && (
               <>
                 {adminMenus.map((item, i) => (
-                  <NavLink key={i} to={item.router} className={({ isActive }) => `flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 transition font-semibold ${isActive ? "bg-[#894b8d] text-white" : "text-gray-700 hover:bg-indigo-50"}`}>
+                  <NavLink key={i} to={item.router} className={({ isActive }) => `flex w-50 items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 transition font-semibold ${isActive ? "bg-[#894b8d] text-white" : "text-gray-700 hover:bg-indigo-50"}`}>
                     {item.icon}
                     {open && <span>{item.name}</span>}
                   </NavLink>
@@ -133,7 +133,7 @@ const DashboardLayout = () => {
             )}
 
             {menuItems.map((item, i) => (
-              <NavLink key={i} to={item.router} className={({ isActive }) => `flex items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 transition font-semibold ${isActive ? "bg-[#894b8d] text-white" : "text-gray-700 hover:bg-indigo-50"}`}>
+              <NavLink key={i} to={item.router} className={({ isActive }) => `flex w-50 items-center gap-3 px-4 py-3 cursor-pointer rounded-xl mx-2 transition font-semibold ${isActive ? "bg-[#894b8d] text-white" : "text-gray-700 hover:bg-indigo-50"}`}>
                 {item.icon}
                 {open && <span>{item.name}</span>}
               </NavLink>
@@ -142,9 +142,9 @@ const DashboardLayout = () => {
         </motion.aside>
 
         {/* Main content */}
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col h-screen overflow-hidden relative">
           {/* Top Navbar */}
-          <header className="bg-white shadow-sm px-6 py-4 flex justify-between items-center border-b">
+          <header className="bg-white shadow-sm px-6 py-4 flex justify-between items-center border-b shrink-0 z-10">
             <h2 className="text-xl font-semibold text-gray-700">Dashboard</h2>
 
             {/* Profile */}
@@ -175,7 +175,7 @@ const DashboardLayout = () => {
             )}
           </header>
 
-          <main className="p-6">
+          <main className="flex-1 overflow-y-auto p-4 md:p-6 flex flex-col relative w-full max-w-[100vw]">
             <Outlet />
           </main>
         </div>

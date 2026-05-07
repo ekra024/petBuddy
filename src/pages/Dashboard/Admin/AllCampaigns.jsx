@@ -137,9 +137,9 @@ const AllCampaigns = () => {
       </div>
 
       {/* TABLE VIEW (md & lg) */}
-      <div className="hidden md:block bg-white rounded-xl shadow border overflow-x-auto">
-        <table className="w-full">
-          <thead className="bg-[#f7f4f7]">
+      <div className="hidden md:block bg-white rounded-xl shadow border overflow-x-auto overflow-y-auto max-h-[70vh]">
+        <table className="w-full min-w-max relative">
+          <thead className="bg-[#f7f4f7] sticky top-0 z-10 shadow-sm">
             {table.getHeaderGroups().map((group) => (
               <tr key={group.id}>
                 {group.headers.map((header) => (

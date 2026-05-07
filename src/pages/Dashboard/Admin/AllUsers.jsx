@@ -104,13 +104,13 @@ const AllUsers = () => {
       {allUsers.length === 0 ? (
         <div className="flex justify-center items-center">No Data to Show.</div>
       ) : (
-        <div className="bg-white p-6 rounded-2xl shadow">
-          <div className="flex items-center gap-2 mb-6">
+        <div className="bg-white p-4 md:p-6 rounded-2xl shadow h-full flex flex-col">
+          <div className="flex items-center gap-2 mb-4 md:mb-6 shrink-0">
             <h2 className="text-2xl font-semibold">Registered Users Are Here</h2>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead className="bg-indigo-50">
+          <div className="overflow-x-auto overflow-y-auto flex-1 min-h-0 border rounded-xl">
+            <table className="w-full min-w-max border-collapse relative">
+              <thead className="bg-indigo-50 sticky top-0 z-10 shadow-sm">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (

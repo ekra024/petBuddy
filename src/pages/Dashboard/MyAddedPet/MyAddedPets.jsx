@@ -118,8 +118,9 @@ const MyAddedPets = () => {
       <h2 className="text-3xl font-bold mb-4 text-[#002169] text-center">
         My Added Pets
       </h2>
-      <table className="w-full">
-        <thead className="text-center">
+      <div className="overflow-x-auto overflow-y-auto max-h-[70vh]">
+      <table className="w-full min-w-max relative">
+        <thead className="text-center bg-gray-100 sticky top-0 z-10 shadow-sm">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
@@ -151,6 +152,7 @@ const MyAddedPets = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div> }
     </div>
   );

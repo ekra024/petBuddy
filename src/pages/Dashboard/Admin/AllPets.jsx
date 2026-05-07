@@ -95,17 +95,17 @@ const AllPets = () => {
     return <LoaddingPage /> ;
   }
   return (
-    <div className="p-6">
+    <div className="p-4 md:p-6 h-full flex flex-col">
       {/* Page Header */}
-      <div className="mb-6">
+      <div className="mb-4 md:mb-6 shrink-0">
         <h1 className="text-2xl font-bold text-[#002169]">All Pets</h1>
         <p className="text-gray-500">Manage all pets added to PetBuddy</p>
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto bg-white rounded-xl shadow border">
-        <table className="w-full">
-          <thead className="bg-[#f7f4f7]">
+      <div className="overflow-x-auto overflow-y-auto flex-1 min-h-0 bg-white rounded-xl shadow border">
+        <table className="w-full min-w-max relative">
+          <thead className="bg-[#f7f4f7] sticky top-0 z-10 shadow-sm">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (

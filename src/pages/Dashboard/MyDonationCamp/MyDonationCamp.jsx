@@ -61,8 +61,9 @@ const MyDonationCamp = () => {
       <h2 className="text-3xl font-bold text-center mb-4 text-[#002169]">
         My Donation Campaigns
       </h2>
-      <table className="w-full border-collapse text-left">
-        <thead>
+      <div className="overflow-x-auto overflow-y-auto max-h-[70vh]">
+      <table className="w-full min-w-max border-collapse text-left relative">
+        <thead className="sticky top-0 z-10 shadow-sm">
           <tr className="bg-gray-100">
             <th className="p-3 border">Pet Image</th>
             <th className="p-3 border">Pet Name</th>
@@ -131,6 +132,7 @@ const MyDonationCamp = () => {
           })}
         </tbody>
       </table>
+      </div>
       
     </div>)
     }

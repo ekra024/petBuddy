@@ -60,8 +60,9 @@ const MyAdoptionRequest = () => {
       <h2 className="text-3xl font-bold text-center mb-4 text-[#002169]">
         Adoption Requests 
       </h2>
-      <table className="w-full border-collapse text-center">
-        <thead>
+      <div className="overflow-x-auto overflow-y-auto max-h-[70vh]">
+      <table className="w-full min-w-max border-collapse text-center relative">
+        <thead className="sticky top-0 z-10 shadow-sm bg-gray-100">
           <tr className="bg-gray-100">
             <th className="p-3 border">Pet Name</th>
             <th className="p-3 border">Requester Name</th>
@@ -98,6 +99,7 @@ const MyAdoptionRequest = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
           ) 
       }
