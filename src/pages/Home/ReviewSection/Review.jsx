@@ -29,7 +29,7 @@ const Review = () => {
         <h2 className="text-4xl font-semibold text-[#002169]">Don't Just Take It From Us, Hear What Our Clients Say: </h2>
         <div className="my-5 md:flex gap-5">
           <div className=" ">
-            <img loading="lazy" className="object-cover rounded-2xl md:w-50 h-25 " src={Person} alt="" />
+            <img loading="lazy" className="object-cover rounded-2xl md:w-50 h-25 " src={Person} alt="person" />
           </div>
           <p className="plus text-[18px] text-[#445374]">
             "Pet Buddy has been a lifesaver for me.Their team is knowledgeable, caring, and always goes above and beyond to ensure the health and happiness."

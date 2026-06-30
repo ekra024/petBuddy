@@ -24,40 +24,40 @@ const Banner = () => {
       <div className="w-11/12 mx-auto md:flex gap-8 relative">
         <div data-aos="fade-right" className="w-full md:pl-20 max-w-4xl px-10">
           <div className="h-[500px] relative overflow-hidden rounded-full md:mb-0 mb-10">
-            <img loading="lazy"
-              src={bannerImage}
+            <img 
+              src={bannerImage} alt="banner-img"
               className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 rounded-full"
             />
-            <img loading="lazy" src={bannerImage} className="relative mx-auto h-full object-contain" />
+            <img  src={bannerImage} alt="banner-img" className="relative mx-auto h-full object-contain" />
           </div>
 
           <div className="rounded-full w-50 absolute lg:top-1/7 md:top-1/7 md:left-3/4 top-1/10 right-1/5 ">
-            <img loading="lazy"
+            <img 
               className="rounded-full w-40 hidden md:flex"
               src={overlayImage}
-              alt=""
+              alt="overlay-img"
             />
           </div>
           <div className="absolute md:bottom-5 md:left-16 lg:bottom-10">
             <div className="avatar-group w-80 -space-x-6 border border-gray-400 py-1 px-2 relative  rounded-4xl bg-gray-50 hidden  md:flex">
               <div className="avatar">
                 <div className="w-12">
-                  <img loading="lazy" src={person1} />
+                  <img alt="person1" src={person1} />
                 </div>
               </div>
               <div className="avatar">
                 <div className="w-12">
-                  <img loading="lazy" src={person2} />
+                  <img alt="person2" src={person2} />
                 </div>
               </div>
               <div className="avatar">
                 <div className="w-12">
-                  <img loading="lazy" src={person3} />
+                  <img alt="person3" src={person3} />
                 </div>
               </div>
               <div className="avatar">
                 <div className="w-12">
-                  <img loading="lazy" src={person4} />
+                  <img alt="person4" src={person4} />
                 </div>
               </div>
               <div className="flex justify-center mt-3 ml-8 text-sm font-semibold text-gray-700">
@@ -94,10 +94,10 @@ const Banner = () => {
           data-aos="fade-left"
           className="w-full md:ml-30 lg:ml-5 flex items-center justify-center rounded-4xl pl-4"
         >
-          <img loading="lazy"
+          <img 
             className="rounded-4xl object-cover "
             src={sideBannerImage}
-            alt=""
+            alt="side-banner"
           />
         </div>
       </div>
