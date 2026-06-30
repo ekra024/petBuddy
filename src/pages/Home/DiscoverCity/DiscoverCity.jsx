@@ -15,9 +15,9 @@ const DiscoverCity = () => {
           </h2>
           <MdOutlinePets className="inline text-xl text-[#894B8D] ml-2 mb-2" />
         </div>
-        <h1 className="text-4xl font-semibold my-3 text-[#002169]">
+        <h2 className="text-4xl font-semibold my-3 text-[#002169]">
           Find Your Perfect Match
-        </h1>
+        </h2>
         <p className="text-[#445374] plus px-20">
           Explore our services in different cities and find the best care for
           your beloved pets. We provide best services in all cities.
@@ -26,7 +26,7 @@ const DiscoverCity = () => {
       <div>
         <div  data-aos="fade-down-right" className="lg:flex space-y-5 gap-5">
           <div className="lg:w-1/2">
-            <img
+            <img loading="lazy"
               src={DhakaCity}
               className="w-full h-70 rounded-4xl"
               alt="Dhaka City"
@@ -37,7 +37,7 @@ const DiscoverCity = () => {
             </div>
           </div>
           <div className="lg:w-1/2">
-            <img
+            <img loading="lazy"
               src={KhulnaCity}
               className="w-full h-70 rounded-4xl"
               alt="Khulna City"
@@ -50,7 +50,7 @@ const DiscoverCity = () => {
         </div>
         <div  data-aos="fade-down-left" className="lg:flex gap-5 space-y-5 lg:space-y-0 mt-5">
           <div className="lg:w-1/3">
-            <img
+            <img loading="lazy"
               src={ChattogramCity}
               className="w-full h-70 rounded-4xl"
               alt="Chattogram City"
@@ -63,7 +63,7 @@ const DiscoverCity = () => {
             </div>
           </div>
           <div className="lg:w-1/3">
-            <img
+            <img loading="lazy"
               src={RajshashiCity}
               className="w-full h-70 rounded-4xl"
               alt="Rajshashi City"
@@ -77,7 +77,7 @@ const DiscoverCity = () => {
             </div>
           </div>
           <div className="lg:w-1/3">
-            <img
+            <img loading="lazy"
               src={BarishalCity}
               className="w-full h-70 rounded-4xl"
               alt="Barishal City"

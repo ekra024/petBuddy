@@ -26,9 +26,9 @@ const Article = () => {
             </h2>
             <MdOutlinePets className="inline text-xl text-[#894B8D] ml-2 mb-2" />
           </div>
-          <h1 className="text-2xl md:text-5xl font-bold text-[#002169]">
+          <h2 className="text-2xl md:text-5xl font-bold text-[#002169]">
             Our Recent Articles
-          </h1>
+          </h2>
         </div>
         <div>
           <button className="border my-6  bg-[#894B8D]  text-white font-semibold p-4 md:px-8 md:text-[18px] rounded-4xl">
@@ -38,7 +38,7 @@ const Article = () => {
       </div>
       <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-8 mt-5">
         <div data-aos="zoom-in" className="bg-white rounded-2xl pb-10 shadow-xl">
-          <img
+          <img loading="lazy"
             src={Article1} 
             alt="Article 1"
             className="rounded-t-2xl h-55 w-full object-cover"
@@ -57,7 +57,7 @@ const Article = () => {
           </p>
         </div>
         <div data-aos="zoom-in" className="bg-white rounded-2xl shadow-xl pb-5">
-          <img
+          <img loading="lazy"
             src={Article2} 
             alt="Article 2"
             className="rounded-t-2xl round border border-gray-300 h-55 w-full object-cover"
@@ -76,7 +76,7 @@ const Article = () => {
           </p>
         </div>
         <div data-aos="zoom-in" className="bg-white rounded-2xl shadow-xl pb-5 w-full lg:w-auto lg:ml-0  md:ml-50 ">
-          <img
+          <img loading="lazy"
             src={Article3} 
             alt="Article 3"
             className="rounded-2xl h-55 w-full object-cover"

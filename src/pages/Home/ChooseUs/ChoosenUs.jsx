@@ -8,13 +8,13 @@ const ChoosenUs = () => {
   return (
     <div className="w-full bg-blue-50 lg:flex gap-30 p-5 px-20 pb-15">
       <div data-aos="zoom-in-right" className="lg:w-1/2 flex justify-center items-center px-10">
-        <img
+        <img loading="lazy"
           src={Image1}
           alt="Banner"
           className="w-76 rounded-[50px] object-center"
         />
         <img
-          src={Image2}
+          src={Image2} loading="lazy"
           alt="Banner"
           className="w-76 rounded-[50px] object-center -ml-20 mt-60  "
         />
@@ -27,9 +27,9 @@ const ChoosenUs = () => {
           <MdOutlinePets className="inline text-xl text-[#894B8D] ml-2 mb-2" />
         </div>
 
-        <h1 className="text-4xl font-semibold my-5 text-[#002169] ">
+        <h2 className="text-4xl font-semibold my-5 text-[#002169] ">
           We Thrive On Building A Healhy Community For All Pets
-        </h1>
+        </h2>
         <p className="text-[#445374] plus">
           Our commitment to pet wellness and community building sets us apart
           from the rest. We build systems for providing health services for
@@ -39,10 +39,10 @@ const ChoosenUs = () => {
           <div>
             <div className="flex">
               <IoCheckmarkDoneSharp className="text-3xl text-[#894B8D] mr-2 mb-2" />
-              <h1 className="text-2xl text-[#002169] font-semibold">
+              <h2 className="text-2xl text-[#002169] font-semibold">
                 {" "}
                 More Experience{" "}
-              </h1>
+              </h2>
             </div>
             <p className="text-[#445374] plus">
               Be confident in our expertise and years of experience in pet care.
@@ -51,10 +51,10 @@ const ChoosenUs = () => {
           <div>
             <div className="flex">
               <IoCheckmarkDoneSharp className="text-3xl text-[#894B8D] mr-2 mb-2" />
-              <h1 className="text-2xl text-[#002169] font-semibold ">
+              <h2 className="text-2xl text-[#002169] font-semibold ">
                 {" "}
                 Trusted By Thousands{" "}
-              </h1>
+              </h2>
             </div>
             <p className="text-[#445374] plus">
               Join a community of satisfied pet owners who trust us for their

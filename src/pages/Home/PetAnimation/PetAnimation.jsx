@@ -13,14 +13,14 @@ const PetAnimation = () => {
     <div>
       <Marquee speed={100} className="my-4">
         <div className="flex items-center justify-center space-x-4">
-          <img src={image1} className="w-30 h-26 rounded-full mx-10" />
-          <img src={image2} className="w-36 h-30 rounded-full" />
-          <img src={image3} className="w-36 h-36 rounded-full" />
-          <img src={image4} className="w-30 h-26 rounded-full" />
-          <img src={image5} className="w-50 h-46 rounded-full" />
-          <img src={image6} className="w-40 h-36 rounded-full" />
-          <img src={image7} className="w-30 h-26 rounded-full" />
-          <img src={image8} className="w-30 h-26 rounded-full" />
+          <img loading="lazy" src={image1} className="w-30 h-26 rounded-full mx-10" />
+          <img loading="lazy" src={image2} className="w-36 h-30 rounded-full" />
+          <img loading="lazy" src={image3} className="w-36 h-36 rounded-full" />
+          <img loading="lazy" src={image4} className="w-30 h-26 rounded-full" />
+          <img loading="lazy" src={image5} className="w-50 h-46 rounded-full" />
+          <img loading="lazy" src={image6} className="w-40 h-36 rounded-full" />
+          <img loading="lazy" src={image7} className="w-30 h-26 rounded-full" />
+          <img loading="lazy" src={image8} className="w-30 h-26 rounded-full" />
         </div>
       </Marquee>
     </div>

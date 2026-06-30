@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import bannerImage from "/sidebanner.jpg";
-import overlayImage from "/logo.jpg";
+import bannerImage from "/sidebanner.avif";
+import overlayImage from "/logo.avif";
 import sideBannerImage from "/pet12.avif";
 import { FaStar } from "react-icons/fa";
 import person1 from "/person2.jpeg";
@@ -24,15 +24,15 @@ const Banner = () => {
       <div className="w-11/12 mx-auto md:flex gap-8 relative">
         <div data-aos="fade-right" className="w-full md:pl-20 max-w-4xl px-10">
           <div className="h-[500px] relative overflow-hidden rounded-full md:mb-0 mb-10">
-            <img
+            <img loading="lazy"
               src={bannerImage}
               className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 rounded-full"
             />
-            <img src={bannerImage} className="relative mx-auto h-full object-contain" />
+            <img loading="lazy" src={bannerImage} className="relative mx-auto h-full object-contain" />
           </div>
 
           <div className="rounded-full w-50 absolute lg:top-1/7 md:top-1/7 md:left-3/4 top-1/10 right-1/5 ">
-            <img
+            <img loading="lazy"
               className="rounded-full w-40 hidden md:flex"
               src={overlayImage}
               alt=""
@@ -42,22 +42,22 @@ const Banner = () => {
             <div className="avatar-group w-80 -space-x-6 border border-gray-400 py-1 px-2 relative  rounded-4xl bg-gray-50 hidden  md:flex">
               <div className="avatar">
                 <div className="w-12">
-                  <img src={person1} />
+                  <img loading="lazy" src={person1} />
                 </div>
               </div>
               <div className="avatar">
                 <div className="w-12">
-                  <img src={person2} />
+                  <img loading="lazy" src={person2} />
                 </div>
               </div>
               <div className="avatar">
                 <div className="w-12">
-                  <img src={person3} />
+                  <img loading="lazy" src={person3} />
                 </div>
               </div>
               <div className="avatar">
                 <div className="w-12">
-                  <img src={person4} />
+                  <img loading="lazy" src={person4} />
                 </div>
               </div>
               <div className="flex justify-center mt-3 ml-8 text-sm font-semibold text-gray-700">
@@ -81,12 +81,10 @@ const Banner = () => {
             <MdOutlinePets className="inline text-xl text-[#894B8D] ml-2 mb-2" />
           </div>
           <h1 className="text-4xl font-bold mb-4 text-[#002169]">
-            Adopt Pets And Save Their Lives
+            Adopt Pets from Bangladesh's Trust platform
           </h1>
           <p className="plus text-[#445374]">
-            We will work with you to develop individualised care plans including
-            management chronic diseases. We areommit ted to being the network
-            providing healthcare centered care that inspires.
+            PetBuddy helps you adopt rescued pets, support pet donation campaigns, and give homeless animals a safe and loving home.
           </p>
           <button className="border my-6  bg-[#894B8D]  text-white font-semibold p-4 px-8 text-[18px] rounded-4xl">
             Contact With Us <GoArrowRight className="inline ml-2 text-2xl " />
@@ -96,7 +94,7 @@ const Banner = () => {
           data-aos="fade-left"
           className="w-full md:ml-30 lg:ml-5 flex items-center justify-center rounded-4xl pl-4"
         >
-          <img
+          <img loading="lazy"
             className="rounded-4xl object-cover "
             src={sideBannerImage}
             alt=""
@@ -112,12 +110,10 @@ const Banner = () => {
         </div>
 
         <h1 className="text-4xl font-bold mb-4 text-[#002169]">
-          Adopt Pets And Save Their Lives
+          Adopt Pets from Bangladesh's Trust platform
         </h1>
         <p className="plus text-[#445374]">
-          We will work with you to develop individualised care plans including
-          management chronic diseases. We areommit ted to being the network
-          providing healthcare centered care that inspires.
+          PetBuddy helps you adopt rescued pets, support pet donation campaigns, and give homeless animals a safe and loving home.
         </p>
         <div>
           <button className="border my-6  bg-[#894B8D]  text-white font-semibold p-4 px-8 text-[18px] rounded-4xl">
